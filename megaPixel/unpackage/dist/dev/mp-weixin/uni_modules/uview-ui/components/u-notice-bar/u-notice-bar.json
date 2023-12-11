@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "u-row-notice": "/uni_modules/uview-ui/components/u-row-notice/u-row-notice"
+  },
+  "component": true
+}

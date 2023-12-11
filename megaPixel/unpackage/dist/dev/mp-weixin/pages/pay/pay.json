@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "支付",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "comm-navbar": "/components/comm-navbar/comm-navbar",
+    "u--input": "/uni_modules/uview-ui/components/u--input/u--input"
+  }
+}

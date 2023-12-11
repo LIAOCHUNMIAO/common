@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "摄影棚",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "comm-navbar": "/components/comm-navbar/comm-navbar",
+    "comm-empty": "/components/comm-empty/comm-empty",
+    "u-swiper": "/uni_modules/uview-ui/components/u-swiper/u-swiper",
+    "u-tabbar": "/uni_modules/uview-ui/components/u-tabbar/u-tabbar",
+    "u-tabbar-item": "/uni_modules/uview-ui/components/u-tabbar-item/u-tabbar-item"
+  }
+}

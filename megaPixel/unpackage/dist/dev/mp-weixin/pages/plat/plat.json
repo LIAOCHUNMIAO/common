@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "地图",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "comm-navbar": "/components/comm-navbar/comm-navbar",
+    "comm-empty": "/components/comm-empty/comm-empty"
+  }
+}

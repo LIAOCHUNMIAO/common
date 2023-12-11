@@ -1,0 +1,14 @@
+
+page.data-v-16117fa3 {
+  background-color: white;
+}
+.avatar-style.data-v-16117fa3 {
+  border: 0px solid #fff;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  padding: 0;
+  background: #eee;
+  margin: 0;
+}
+

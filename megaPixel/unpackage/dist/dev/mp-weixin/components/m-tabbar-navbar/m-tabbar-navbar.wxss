@@ -1,0 +1,18 @@
+
+.main.data-v-1214c604 {
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background: #faa1c7;
+}
+.box.data-v-1214c604 {
+  background: #faa1c7;
+}
+.title.data-v-1214c604 {
+  color: #fff;
+  font-size: 19px;
+  font-weight: bold;
+}
+

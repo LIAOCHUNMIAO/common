@@ -1,0 +1,93 @@
+@font-face {
+  font-family: "mega-pixel-icon"; /* Project id 4289474 */
+  src: url('@/static/font/iconfont.ttf') format('truetype');
+}
+
+.mega-pixel-icon {
+  font-family: "mega-pixel-icon" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-people:before {
+  content: "\e670";
+}
+
+.icon-setting:before {
+  content: "\e68f";
+}
+
+.icon-notice:before {
+  content: "\e62a";
+}
+
+.icon-lease:before {
+  content: "\e69a";
+}
+
+.icon-browser:before {
+  content: "\e62c";
+}
+
+.icon-vip:before {
+  content: "\e61a";
+}
+
+.icon-store:before {
+  content: "\e90e";
+}
+
+.icon-close:before {
+  content: "\e603";
+}
+
+.icon-pen:before {
+  content: "\e62b";
+}
+
+.icon-shutdown:before {
+  content: "\e628";
+}
+
+.icon-shopping-cart:before {
+  content: "\e602";
+}
+
+.icon-order:before {
+  content: "\e615";
+}
+
+.icon-right:before {
+  content: "\e600";
+}
+
+.icon-telephone:before {
+  content: "\e969";
+}
+
+.icon-down:before {
+  content: "\e601";
+}
+
+.icon-left:before {
+  content: "\e96a";
+}
+
+.icon-position:before {
+  content: "\e6c2";
+}
+
+.icon-vx:before {
+  content: "\e7ad";
+}
+
+.icon-home_:before {
+  content: "\e616";
+}
+
+.icon-home:before {
+  content: "\e618";
+}
+

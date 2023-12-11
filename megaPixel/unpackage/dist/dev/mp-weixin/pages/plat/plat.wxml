@@ -1,0 +1,1 @@
+<view><comm-navbar vue-id="7129b940-1" title="地图" bind:__l="__l"></comm-navbar><comm-empty vue-id="7129b940-2" bind:__l="__l"></comm-empty><view><map style="width:100%;height:94vh;" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}"></map></view></view>

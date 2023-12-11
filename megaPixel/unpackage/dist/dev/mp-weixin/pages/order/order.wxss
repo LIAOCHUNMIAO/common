@@ -1,0 +1,12 @@
+
+.m-tabs {
+		z-index: 99;
+		width: 100%;
+		position: fixed;
+    padding: 5px 0px;
+    background: #fff;
+}
+.m-tabs-item {
+    padding: 40px 5px 5px 5px;
+}
+

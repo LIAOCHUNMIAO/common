@@ -1,0 +1,15 @@
+
+.content-Box.data-v-452fa4c2{
+}
+.d-m-title.data-v-452fa4c2{
+  font-weight: bold;
+  /*width: 100px; */
+  /*\//display: inline-block; */
+  /*display: flex; */
+  /*justify-content: space-between; */
+}
+.d-m-value.data-v-452fa4c2{
+  font-weight: bold;
+  color: #3c9cff;
+}
+

@@ -1,0 +1,24 @@
+
+page {
+	/* margin: 4px; */
+	/* padding: 5px; */
+}
+.cate-gory {
+	width: 100%;
+	margin-top: 20px;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-gap: 30px;
+	padding: 15px;
+}
+.cate-gory>.cate-gory-item {
+	background: white;
+	border-radius: 10px;
+	text-align: center;
+	padding: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+

@@ -1,0 +1,71 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/my/my",
+    "pages/plat/plat"
+  ],
+  "subPackages": [
+    {
+      "root": "pages/myVip",
+      "pages": [
+        "myVip"
+      ]
+    },
+    {
+      "root": "pages/pay",
+      "pages": [
+        "pay",
+        "prepare-pay"
+      ]
+    },
+    {
+      "root": "pages/booking",
+      "pages": [
+        "booking"
+      ]
+    },
+    {
+      "root": "pages/studio",
+      "pages": [
+        "studio",
+        "booking",
+        "lease",
+        "vip",
+        "sceneryDetails"
+      ]
+    },
+    {
+      "root": "pages/order",
+      "pages": [
+        "order"
+      ]
+    },
+    {
+      "root": "pages/searchPage",
+      "pages": [
+        "searchPage"
+      ]
+    },
+    {
+      "root": "pages/my/module",
+      "pages": [
+        "edit"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "百万像素",
+    "navigationBarBackgroundColor": "#faa1c7",
+    "backgroundColor": "#F8F8F8"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取用户位置"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation"
+  ],
+  "usingComponents": {}
+}

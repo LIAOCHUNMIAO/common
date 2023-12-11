@@ -1,0 +1,12 @@
+
+.def-style {
+  flex-grow: 1;
+  border: 1px solid #fcd9e8;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  color: white;
+  height: 70px;
+}
+

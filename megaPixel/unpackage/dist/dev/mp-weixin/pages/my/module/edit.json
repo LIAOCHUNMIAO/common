@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "编辑",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "comm-navbar": "/components/comm-navbar/comm-navbar",
+    "comm-empty": "/components/comm-empty/comm-empty",
+    "u--input": "/uni_modules/uview-ui/components/u--input/u--input",
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup"
+  }
+}
