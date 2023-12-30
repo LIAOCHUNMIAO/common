@@ -1,12 +1,12 @@
 <template>
   <view>
-    <comm-navbar title="百万像素"/>
+    <comm-navbar title="百万像素"  :autoBack="false"/>
     <comm-empty/>
     <view
          class="query-box"
          :style="{height: navHeight + 'px'}">
       <view style="display: flex;align-items: center" @click="openCity">
-        <view style="color: white;margin-right: 5px;">{{ queryParams.province }}</view>
+        <view class="def-font-size" style="color: white;margin-right: 5px;">{{ queryParams.province }}</view>
         <view style="height: 18px;width: 18px;padding-top: 2px;color: #ababab" class="mega-pixel-icon icon-down"></view>
       </view>
       <view style="flex-grow: 1;margin-left: 20px">
@@ -24,8 +24,8 @@
           <image style="width: 100%;height:100%;border-radius: 5px" :src="item.avatar2.url"></image>
         </view>
         <view style="margin-left: 20px;">
-          <view style="font-size: 16px;font-weight: bold;margin-bottom: 5px">{{subValue(item.name,true)}}</view>
-          <view style="color: #939292">{{subValue(item.intro,false)}}</view>
+          <view class="def-font-size" style="font-weight: bold;margin-bottom: 5px">{{subValue(item.name,true)}}</view>
+          <view class="details-font-size" style="color: #939292">{{subValue(item.intro,false)}}</view>
         </view>
       </view>
 
@@ -88,7 +88,12 @@ export default {
     }
     this.init()
   },
+  created() {
+  },
   methods: {
+    goBack() {
+      this.$tab.navigateBack()
+    },
     init(){
 
       let param = {}

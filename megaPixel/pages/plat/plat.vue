@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import QQMapWX from '@/static/map-sdk/qqmap-wx-jssdk.min.js'
+// import QQMapWX from '@/static/map-sdk/qqmap-wx-jssdk.min.js'
 export default {
    // {QQMapWX} from '../../qqmap-wx-jssdk.js'
   // var QQMapWX = require('../../qqmap-wx-jssdk.js');
@@ -45,30 +45,30 @@ export default {
     const _this_ = this
     // let sys = getApp().globalData.config.systemInfo.windowHeight
     // console.log(sys)
-    var qqmapsdk = new QQMapWX({
-      key: 'R4RBZ-LBXCB-36SU5-JFBAW-KM4BO-VNBBX' // 必填，填自己在腾讯位置服务申请的key
-    });
-    //新增
-    qqmapsdk.reverseGeocoder({
-      //位置坐标，默认获取当前位置，非必须参数
-      //Object格式
-      location: {
-        latitude: _this_.latitude,
-        longitude: _this_.longitude
-      },
-      success: function(res) {//成功后的回调
-        console.log(1)
-        console.log(res)
-      },
-      fail: function(error) {
-        console.log(2)
-        console.error(error);
-      },
-      complete: function(res) {
-        console.log(3)
-        console.log(res);
-      }
-    })
+    // var qqmapsdk = new QQMapWX({
+    //   key: 'R4RBZ-LBXCB-36SU5-JFBAW-KM4BO-VNBBX' // 必填，填自己在腾讯位置服务申请的key
+    // });
+    // //新增
+    // qqmapsdk.reverseGeocoder({
+    //   //位置坐标，默认获取当前位置，非必须参数
+    //   //Object格式
+    //   location: {
+    //     latitude: _this_.latitude,
+    //     longitude: _this_.longitude
+    //   },
+    //   success: function(res) {//成功后的回调
+    //     console.log(1)
+    //     console.log(res)
+    //   },
+    //   fail: function(error) {
+    //     console.log(2)
+    //     console.error(error);
+    //   },
+    //   complete: function(res) {
+    //     console.log(3)
+    //     console.log(res);
+    //   }
+    // })
 
 
 

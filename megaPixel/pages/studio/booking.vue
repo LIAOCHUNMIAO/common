@@ -15,14 +15,14 @@
         <view v-if="curNow === 0" style="padding: 5px 20px">
           <!-- 预约商品列表-->
           <view v-for="(item,index) in studioList" :key="index" style="z-index: 50;background: #fff;border-radius: 0px 0px 5px 5px;margin-bottom: 10px" @click="goDetails(item)">
-            <image style="width: 100%;" :src="item.sceneryPhotoRelations[0].sceneryPhoto.url"></image>
+            <image style="width: 100%;" mode="widthFix" :src="item.sceneryPhotoRelations[0].sceneryPhoto.url"></image>
             <view style="padding: 15px 15px">
               <view style="display: flex;justify-content: space-between;align-items: center">
-                <view style="font-size: 16px;font-weight: bold;margin-bottom: 10px">{{ item.name }}</view>
-                <view  class="rmb-money flex-center" style="font-size: 16px;margin-bottom: 10px;color: #48b0d0;width: 80px">{{ item.price }}/h</view>
+                <view class="def-font-spacing" style="font-size: 16px;font-weight: bold;margin-bottom: 10px">{{ item.name }}</view>
+                <view  class="rmb-money flex-center def-font-spacing def-font-size" style="margin-bottom: 10px;color: #48b0d0;width: 80px">{{ item.price }}/h</view>
               </view>
               <view style="display: flex;justify-content: space-between;align-items: center;">
-                <view>{{ item.intro }}</view>
+                <view class="def-font-size">{{ item.intro }}</view>
 
                 <view style="width: 80px" class="flex-center">
                   <view class="my-submit-button" @click.stop="goBooking(item)" style="z-index: 55">

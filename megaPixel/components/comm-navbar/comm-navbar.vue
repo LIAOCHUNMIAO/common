@@ -28,12 +28,15 @@ export default {
         type: String,
         default: '#faa1c7'
       },
-      leftClick:{
-        type: Function,
-        default: function () {
-          uni.navigateBack()
-        }
-      }
+      autoBack:{
+        type: Boolean,
+        default: true
+      },
+      // leftClick:{
+      //   type: Function,
+      //   default: null
+      // }
+      leftClick: Function
     },
   watch:{
       title:{
@@ -41,7 +44,7 @@ export default {
         deep: true,
           handler(newVal) {
           if (newVal === null || newVal === '' || newVal === undefined) return
-            console.log(newVal)
+            // console.log(newVal)
             if (newVal.length >13){
                 this.lenCross = true
             }
@@ -59,7 +62,14 @@ export default {
     },
     methods: {
       goBack(){
-        uni.navigateBack()
+          if (this.autoBack){
+            uni.navigateBack()
+          }else {
+            if (this.$parent.goBack() !== undefined) {
+              // 调用父组件方法
+              this.$parent.goBack()
+            }
+          }
       }
     }
   }

@@ -101,21 +101,9 @@ const user = {
           commit('SET_HAS_PHONE',has)
 
 
-
-          // const user = res.user
-          // const avatar = (user == null || user.avatar == "" || user.avatar == null) ? require("@/static/images/test.jpg") : baseUrl + user.avatar
-          // const username = (user == null || user.userName == "" || user.userName == null) ? "" : user.userName
-          // if (res.roles && res.roles.length > 0) {
-          //   commit('SET_ROLES', res.roles)
-          //   commit('SET_PERMISSIONS', res.permissions)
-          // } else {
-          //   commit('SET_ROLES', ['ROLE_DEFAULT'])
-          // }
-          // commit('SET_NAME', username)
-          // commit('SET_AVATAR', avatar)
-          resolve(res)
+          resolve({status:true,info:res})
         }).catch(error => {
-          reject(error)
+          reject({status:true,info:error})
         })
       })
     },

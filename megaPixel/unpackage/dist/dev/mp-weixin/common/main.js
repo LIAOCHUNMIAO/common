@@ -153,6 +153,7 @@ var _default = {
       // this.getMyLocal()
     },
     checkLogin: function checkLogin() {
+      this.dispatch('GetInfo');
       // this.$tab.reLaunch('/pages/auth')
       // if (!getToken()) {
       //   this.$tab.reLaunch('/pages/auth')

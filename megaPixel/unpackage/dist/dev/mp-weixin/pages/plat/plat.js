@@ -99,10 +99,10 @@ var components
 try {
   components = {
     commNavbar: function () {
-      return __webpack_require__.e(/*! import() | components/comm-navbar/comm-navbar */ "components/comm-navbar/comm-navbar").then(__webpack_require__.bind(null, /*! @/components/comm-navbar/comm-navbar.vue */ 378))
+      return __webpack_require__.e(/*! import() | components/comm-navbar/comm-navbar */ "components/comm-navbar/comm-navbar").then(__webpack_require__.bind(null, /*! @/components/comm-navbar/comm-navbar.vue */ 377))
     },
     commEmpty: function () {
-      return __webpack_require__.e(/*! import() | components/comm-empty/comm-empty */ "components/comm-empty/comm-empty").then(__webpack_require__.bind(null, /*! @/components/comm-empty/comm-empty.vue */ 315))
+      return __webpack_require__.e(/*! import() | components/comm-empty/comm-empty */ "components/comm-empty/comm-empty").then(__webpack_require__.bind(null, /*! @/components/comm-empty/comm-empty.vue */ 314))
     },
   }
 } catch (e) {
@@ -161,12 +161,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {
 
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _qqmapWxJssdkMin = _interopRequireDefault(__webpack_require__(/*! @/static/map-sdk/qqmap-wx-jssdk.min.js */ 211));
 //
 //
 //
@@ -178,6 +176,7 @@ var _qqmapWxJssdkMin = _interopRequireDefault(__webpack_require__(/*! @/static/m
 //
 //
 //
+// import QQMapWX from '@/static/map-sdk/qqmap-wx-jssdk.min.js'
 var _default = {
   // {QQMapWX} from '../../qqmap-wx-jssdk.js'
   // var QQMapWX = require('../../qqmap-wx-jssdk.js');
@@ -209,31 +208,30 @@ var _default = {
     var _this_ = this;
     // let sys = getApp().globalData.config.systemInfo.windowHeight
     // console.log(sys)
-    var qqmapsdk = new _qqmapWxJssdkMin.default({
-      key: 'R4RBZ-LBXCB-36SU5-JFBAW-KM4BO-VNBBX' // 必填，填自己在腾讯位置服务申请的key
-    });
-    //新增
-    qqmapsdk.reverseGeocoder({
-      //位置坐标，默认获取当前位置，非必须参数
-      //Object格式
-      location: {
-        latitude: _this_.latitude,
-        longitude: _this_.longitude
-      },
-      success: function success(res) {
-        //成功后的回调
-        console.log(1);
-        console.log(res);
-      },
-      fail: function fail(error) {
-        console.log(2);
-        console.error(error);
-      },
-      complete: function complete(res) {
-        console.log(3);
-        console.log(res);
-      }
-    });
+    // var qqmapsdk = new QQMapWX({
+    //   key: 'R4RBZ-LBXCB-36SU5-JFBAW-KM4BO-VNBBX' // 必填，填自己在腾讯位置服务申请的key
+    // });
+    // //新增
+    // qqmapsdk.reverseGeocoder({
+    //   //位置坐标，默认获取当前位置，非必须参数
+    //   //Object格式
+    //   location: {
+    //     latitude: _this_.latitude,
+    //     longitude: _this_.longitude
+    //   },
+    //   success: function(res) {//成功后的回调
+    //     console.log(1)
+    //     console.log(res)
+    //   },
+    //   fail: function(error) {
+    //     console.log(2)
+    //     console.error(error);
+    //   },
+    //   complete: function(res) {
+    //     console.log(3)
+    //     console.log(res);
+    //   }
+    // })
   },
   onLoad: function onLoad() {
     this.init();

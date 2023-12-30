@@ -1,6 +1,6 @@
 <template>
 	<view >
-    <comm-navbar title="订单"/>
+    <comm-navbar title="订单"  :auto-back="false"/>
     <comm-empty/>
     <view>
 
@@ -73,19 +73,28 @@
 				}],
 				vxNavHeight: 44,
 				vxItemHeight: 68,
-        back: null,
+        back: {
+          page: "",
+          studioId: "",
+          title: "",
+        },
         startX: 0,
         startY: 0,
         moveX: 0,
-        moveY: 0
-
+        moveY: 0,
+        cdIndex: null
       }
 		},
-		onLoad(e) {
+    onLoad: function (e) {
       if (this.$utils.isNotNull(e)) {
-        const data = JSON.parse(e.data)
 
-        this.back = data.back
+        getCurrentPages().forEach((item, index) => {
+          if (item.route === 'pages/studio/booking') {
+            this.cdIndex = index
+          }
+        })
+        const data = JSON.parse(e.data)
+        this.back = data
       }
     },
 		created() {
@@ -113,22 +122,22 @@
     //   return true
 		// },
     onUnload() {
-      if (this.$utils.isNotNull(this.back)) {
-        this.$tab.switchTab(this.back)
-      }else {
-        uni.navigateBack()
-      }
+      this.goBack()
+
     },
 
 		methods: {
-
-      leftClick(){
-        if (this.$utils.isNotNull(this.back)) {
-          this.$tab.switchTab(this.back)
-        }else {
+      goBack() {
+        console.log(this.cdIndex)
+        if (this.back.page === '' || this.back.page === undefined || this.back.page === null){
           uni.navigateBack()
+        }else {
+          uni.navigateBack({
+            delta: this.cdIndex
+          });
         }
       },
+
 			change(e) {
 				console.log(e)
 			},

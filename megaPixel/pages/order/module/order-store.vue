@@ -1,24 +1,24 @@
 <template>
   <view style="background-color: #f6f6f6">
     <view class="item-order" v-for="(item,index) in list" :key="index">
-      <view class="order-store" @click="goStore(item.studio)">
-        <view style="font-size: 19px;margin-right: 5px" class="mega-pixel-icon icon-store my-topic-color"></view>
-        <view style="font-size: 18px;">{{ subValue(item.studio.name,true) }}</view>
+      <view class="order-store " @click="goStore(item.studio)">
+        <view  style="margin-right: 5px" class="mega-pixel-icon icon-store my-topic-color title-font-size"></view>
+        <view class="title-font-size">{{ subValue(item.studio.name,true) }}</view>
         <view style="height: 15px;width: 15px;color: #858585" class="mega-pixel-icon icon-right"></view>
       </view>
       <view class="booking-item" style="display: flex">
         <image class="booking-icon" :src="item.sceneryBooking.scenery.cover.url" alt=""/>
         <view style="width: 100%;padding-left: 10px">
           <view class="flex-between">
-            <view style="font-weight: bold;font-size: 1.2rem;color: #777777">{{
+            <view class="title-font-size" style="font-weight: bold;color: #777777">{{
                 item.sceneryBooking.scenery.name
               }}
             </view>
-            <view class="rmb-money" style="font-weight: bold;font-size: 1.2rem;color: #7fbbff">
+            <view class="rmb-money title-font-size" style="font-weight: bold;font-size: 1.2rem;color: #7fbbff">
               {{ item.payAmount }}
             </view>
           </view>
-          <view style="color: #9b9b9b;margin-top: 10px">
+          <view class="def-font-spacing" style="color: #9b9b9b;margin-top: 10px">
             <text style="margin-right: 20px">{{ dateToBiasDate(item.sceneryBooking.startTime) }}</text>
             <text>{{ dateSlicingTime(item.sceneryBooking.startTime) }}</text>
             <text>-</text>

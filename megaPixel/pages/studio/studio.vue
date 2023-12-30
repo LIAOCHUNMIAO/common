@@ -29,13 +29,13 @@
             height: 100%; border-radius: 10px;box-shadow: 0px 5px 15px 0px #efefef;">
               <view style="padding-top: 40px">
                 <view class="flex-center" style="padding: 0px 10px">
-                  <view class="studio-name">{{ studioInfo.studio.name }}</view>
+                  <view  class="studio-name def-font-spacing">{{ studioInfo.studio.name }}</view>
                 </view>
                 <view style="margin: 0px 10px">
                   <view style="display: flex;align-items: center;padding: 10px;">
                     <view style="height: 24px;width: 24px;padding-top: 2px;color: #ababab"
                           class="mega-pixel-icon icon-home"></view>
-                    <view style="padding: 4px 15px;flex-grow: 1">{{ studioInfo.studio.intro }}</view>
+                    <view class="def-font-spacing" style="padding: 4px 15px;flex-grow: 1">{{ studioInfo.studio.intro }}</view>
                   </view>
                 </view>
               </view>
@@ -53,9 +53,8 @@
                     style="font-size: 20px;padding-top: 2px;color: #ababab"
                     class="mega-pixel-icon icon-position"/>
 
-              <view style="flex-grow: 1;padding: 0px 10px;word-wrap:break-word;
-          word-break:break-all;">
-                <text>{{ studioInfo.studio.address }}</text>
+              <view style="flex-grow: 1;padding: 0px 10px;word-wrap:break-word;word-break:break-all;">
+                <text class="def-font-spacing">{{ studioInfo.studio.address }}</text>
               </view>
               <view style="width: 66px;display: flex">
                 <!-- 复制微信号-->
@@ -81,7 +80,7 @@
 
       <view>
         <view class="flex-center">
-          <text style="font-size: 22px;margin: 10px 0px">摄影棚公告</text>
+          <text class="def-font-spacing" style="font-size: 22px;margin: 10px 0px">摄影棚公告</text>
         </view>
         <!-- 使用须知图片-->
         <image  @click.native="previewImg(studioInfo.studio.backgroundPhoto2.url)" mode="widthFix" style="width: 100%" :src="studioInfo.studio.backgroundPhoto2.url"/>
@@ -146,11 +145,25 @@ export default {
     }
   },
   onLoad(e) {
+
     const data = JSON.parse(e.data)
 
     this.studioId = data.studioId
     this.title = data.title
     this.init()
+  },
+  // 分享功能
+  onShareAppMessage() {
+    const data = {
+      studioId: this.studioId,
+      title: this.title
+    }
+
+    return {
+      title: this.studioInfo.studio.name,
+      path: '/pages/studio/studio?data='+JSON.stringify(data),
+      imageUrl: this.coverList[0].url
+    }
   },
 
   methods: {
@@ -161,6 +174,8 @@ export default {
       studio(this.studioId).then(res => {
         // console.log(res)
         this.studioInfo = res
+        this.title=this.studioInfo.studio.name
+
 
         this.coverList = res.coverList
 

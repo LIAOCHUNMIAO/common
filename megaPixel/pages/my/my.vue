@@ -24,7 +24,7 @@
 				<view >
           <view style="font-size: 28px;padding-top: 2px;" :class="['mega-pixel-icon',' my-topic-color',item.icon]"></view>
 				</view>
-				<view  style="margin-left: 10px;font-size: 17px;" @click="skip(item)">
+				<view  style="margin-left: 10px;font-size: 1.2rem;" @click="skip(item)">
 					{{item.name}}
 				</view>
 			</view>

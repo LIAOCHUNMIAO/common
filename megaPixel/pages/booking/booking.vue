@@ -5,9 +5,9 @@
 
     <view>
 		<view class="date-card" :style="{top: contentTop + 'px'}">
-			<view style="font-weight: bold;font-size: 18px">{{studioName}}</view>
+			<view class="title-font-size" style="font-weight: bold;">{{studioName}}</view>
 			<view  style="display: flex;align-items: center;" @click="showCalendar">
-				<view  style="font-weight: bold;font-size: 16px;color: #999;margin: 10px 0px" @click="showCalendar">{{activeDay}} </view>
+				<view class="def-font-size" style="font-weight: bold;color: #999;margin: 10px 0px" @click="showCalendar">{{activeDay}} </view>
         <view @click="showCalendar" style="font-size: 18px;color: #8f8f8f" class="mega-pixel-icon icon-down"></view>
 			</view>
       <!-- 日期选择卡-->
@@ -30,7 +30,7 @@
           >{{item.day}}</view>
         </view>
       </view>
-			<view  style="display: flex;align-items: center;justify-content:space-around">
+			<view  class="def-font-size" style="display: flex;align-items: center;justify-content:space-around">
 				<view style="display: flex;">
 					<view style="height: 20px;width: 20px;background-color: #faa1c7;border-radius: 4px;margin-right: 5px"></view>
 					<view>当前选择的时间</view>

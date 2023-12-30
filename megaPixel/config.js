@@ -1,9 +1,11 @@
 // 应用全局配置
 module.exports = {
-  // baseUrl: 'https://www.megapixel100.com',
-  //baseUrl: 'http://122.51.108.99:10086',
-
-   baseUrl:'http://120.55.84.243:8000',
+  baseUrl: 'https://www.megapixel100.com',
+  // baseUrl: 'http://122.51.108.99:10086',
+  
+  
+	//baseUrl:'https://www.megapixel100.com:10086',
+   // baseUrl:'http://120.55.84.243:8000',
   // 主题颜色
   topicColor: '#faa1c7',
   // 应用信息

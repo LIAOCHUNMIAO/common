@@ -38,7 +38,7 @@
         </view>
         <view v-else>
           <view class="bj-color">
-            <view class="flex-between" style="font-size: 18px">
+            <view class="flex-between title-font-size" >
               <view>请添加商家微信并支付</view>
               <view style="padding-right: 20px;color: #3c9cff;" class="rmb-money">{{ payInfo.totalAmount }}</view>
             </view>
@@ -46,7 +46,7 @@
 <!--            <view>长时间未确认请联系商家-->
 <!--              <text style="color: red;margin-left: 10px">请截取转账截图并上传</text>-->
 <!--            </view>-->
-            <view style="display: flex;align-items: flex-end;justify-content: space-around;margin-top: 20px">
+            <view class="def-font-size" style="display: flex;align-items: flex-end;justify-content: space-around;margin-top: 20px">
 
               <view>
                 <view >商家微信</view>
@@ -66,10 +66,11 @@
                 <view style="margin-left: 50px">
                   <view></view>
                   <view @click="copy"
-                        style="width: 90px;color: white;height: 33px;
+                        style="color: white;height: 33px;
+                        padding: 0px 10px;;
                         display: flex;align-items: center;justify-content: center;
                         border-radius: 10px"
-                        class="my-bj-topic-color"
+                        class="my-bj-topic-color def-font-size"
                   >复制微信号
                   </view>
                 </view>
@@ -95,9 +96,9 @@
           </view>
 
         </view>
-        <view class="bj-color">
+        <view class="bj-color def-font-size">
 
-          <view class="flex-around" style="margin: 5px 0px">
+          <view class="flex-around " style="margin: 5px 0px">
             <view style="width: 90px;display: flex;align-items: center;justify-content: center">姓名</view>
             <view>
               <u--input
@@ -223,6 +224,7 @@ export default {
 
   },
   onLoad(e) {
+    console.log(JSON.parse(e.data))
     this.form.name = this.$store.getters.name
     this.form.phone = uni.getStorageSync(constant.userPhone)
 
@@ -329,8 +331,11 @@ export default {
         order(this_.payInfo.sceneryId, param).then(res => {
           const status = res
           if (status === 'true' || status === true) {
+
             let data = {
-              back: '/pages/index/index'
+              page: '/pages/studio/studio',
+              studioId: this.payInfo.studioId,
+              title: 'null'
             }
             this.$tab.navigateTo('/pages/order/order?data=' + JSON.stringify(data))
           } else {

@@ -21,7 +21,7 @@
 					<img style="width: 100%;height: 100%;border-radius: 8px;" :src="item.img" alt="">
 				</view>
 
-				<view style="margin-top: 10px;">
+				<view class="def-font-size" style="margin-top: 10px;">
 					{{item.name}}
 				</view>
 			</view>
@@ -141,7 +141,20 @@ import constant from '@/utils/constant'
         tips: '您还未授权登录'
 			}
 		},
+    // 分享功能
+    onShareAppMessage() {
+      return {
+        title: '百万像素',
+        path: '/pages/index/index'
+      }
+    },
 		onLoad() {
+      uni.showShareMenu({
+        withShareTicket: true,
+        //设置下方的Menus菜单，才能够让发送给朋友与分享到朋友圈两个按钮可以点击
+        menus: ["shareAppMessage", "shareTimeline"]
+      })
+
       let s = uni.getStorageSync("start")
       console.log('index:'+s)
       if (s){

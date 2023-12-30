@@ -1,6 +1,6 @@
 <template>
   <view>
-    <comm-navbar title="详情" :leftClick="leftClick"/>
+    <comm-navbar title="详情"/>
     <comm-empty/>
 
     <view style="background: #fff;position: fixed;width: 100vw;height: 45px;z-index: 10;">
@@ -14,7 +14,7 @@
 
       <view class="content-Box" style="padding: 5px 20px;z-index: 4;" v-if="curNow === 0">
         <view style="display: flex;justify-content: space-between;align-items: center;margin-bottom: 5px;padding: 5px 10px">
-          <view style="font-size: 20px;font-weight: bold;color: #464646">{{ goods.name }}</view>
+          <view class="title-font-size" style="font-weight: bold;color: #464646">{{ goods.name }}</view>
           <view>
             <view class="my-submit-button" style="font-weight: bold;" @click="goReservation">
               预 约
@@ -23,17 +23,17 @@
         </view>
         <view >
           <!-- 商品详情图片-->
-          <image style="width: 100%;margin-bottom: 15px" v-for="(item,index) in reality" @click="previewImg(item)"
+          <image  mode="widthFix" style="width: 100%;margin-bottom: 15px" v-for="(item,index) in reality" @click="previewImg(item)"
                  :key="index" :src="item.sceneryPhoto.url"></image>
           <!-- 商品描述-->
-          <view style="margin-bottom: 20px;background: #fff;padding: 10px 10px;font-size: 17px">
+          <view class="def-font-spacing def-font-size" style=" margin-bottom: 20px;background: #fff;padding: 10px 10px;">
 <!--            class="rmb-money"-->
-            <view v-if="goods.price !== null && goods.price !== ''"><text class="d-m-title">单&thinsp; &thinsp; &thinsp; &thinsp; 价：</text><text class="d-m-value rmb-money">{{goods.price}}</text></view>
-            <view v-if="goods.area !== null && goods.area !== ''"><text class="d-m-title">面&thinsp; &thinsp; &thinsp; &thinsp; 积：</text><text class="d-m-value">{{goods.area}}</text></view>
-            <view v-if="goods.style !== null && goods.style !== ''"><text class="d-m-title">风&thinsp; &thinsp; &thinsp; &thinsp; 格：</text><text class="d-m-value">{{goods.style}}</text></view>
+            <view c v-if="goods.price !== null && goods.price !== ''"><text class="d-m-title">单&thinsp; &thinsp;  &thinsp; 价：</text><text class="d-m-value rmb-money">{{goods.price}}</text></view>
+            <view v-if="goods.area !== null && goods.area !== ''"><text class="d-m-title">面&thinsp; &thinsp;  &thinsp; 积：</text><text class="d-m-value">{{goods.area}}</text></view>
+            <view v-if="goods.style !== null && goods.style !== ''"><text class="d-m-title">风&thinsp; &thinsp;  &thinsp; 格：</text><text class="d-m-value">{{goods.style}}</text></view>
             <view v-if="goods.capacity !== null && goods.capacity !== ''"><text class="d-m-title" > 人数上限：</text><text class="d-m-value">{{goods.capacity}} 人</text></view>
-            <view v-if="goods.detail !== null && goods.detail !== ''"><text class="d-m-title">介&thinsp; &thinsp; &thinsp; &thinsp; 绍：</text><text class="d-m-value">{{goods.detail}}</text></view>
-            <view v-if="goods.warning !== null && goods.warning !== ''"><text class="d-m-title">须&thinsp; &thinsp; &thinsp; &thinsp; 知：</text><text class="d-m-value">{{goods.warning}}</text></view>
+            <view v-if="goods.detail !== null && goods.detail !== ''"><text class="d-m-title">介&thinsp; &thinsp;  &thinsp; 绍：</text><text class="d-m-value">{{goods.detail}}</text></view>
+            <view v-if="goods.warning !== null && goods.warning !== ''"><text class="d-m-title">须&thinsp;  &thinsp; &thinsp; 知：</text><text class="d-m-value">{{goods.warning}}</text></view>
             <view v-if="goods.startTime !== null && goods.startTime !== ''"><text class="d-m-title">开始时间：</text ><text class="d-m-value">{{goods.startTime}}</text></view>
             <view v-if="goods.endTime !== null && goods.endTime !== ''"><text class="d-m-title">结束时间：</text><text class="d-m-value">{{goods.endTime}}</text></view>
           </view>
@@ -47,7 +47,7 @@
           <image style="width: 100%;" :src="item.sceneryPhoto.url" @click="previewImg(item)"/>
           <view style="display: flex;justify-content: space-between;padding: 15px 15px">
             <view>
-              <view>{{ item.detail }}</view>
+              <view class="def-font-size">{{ item.detail }}</view>
             </view>
           </view>
         </view>
@@ -59,8 +59,10 @@
 
 <script>
 import {sceneryDetails} from "@/api/index";
+import auth from "../../mixins/auth";
 
 export default {
+  mixins: [auth],
   data() {
     return {
       contentTop: getApp().globalData.config.contentTop+45,
@@ -73,7 +75,28 @@ export default {
       sample:[],
     }
   },
+  // 分享功能
+  onShareAppMessage() {
+    const data = {
+      studioId: this.studioId,
+      title: this.title
+    }
+
+    return {
+      title: this.goods.name,
+      path: '/pages/studio/studio?data='+JSON.stringify(this.goods),
+      imageUrl: this.reality[0].sceneryPhoto.url
+    }
+  },
+
   onLoad(e) {
+    console.log(this.params)
+    uni.showShareMenu({
+      withShareTicket: true,
+      //设置下方的Menus菜单，才能够让发送给朋友与分享到朋友圈两个按钮可以点击
+      menus: ["shareAppMessage", "shareTimeline"]
+    })
+
     const data = JSON.parse(e.data)
     this.sceneryId = data.id
     this.goods = data
@@ -132,7 +155,7 @@ export default {
         wechatId: this.goods.wechatId,
         wechatQr: this.goods.wechatQr
       }
-      this.$tab.navigateTo('/pages/booking/booking?data=' + JSON.stringify(param))
+      this.$tab.redirectTo('/pages/booking/booking?data=' + JSON.stringify(param))
     }
   }
 }

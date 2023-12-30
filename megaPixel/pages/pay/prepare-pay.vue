@@ -10,15 +10,17 @@
         letter-spacing: 2px;
           align-items: center;">
 
-          <view style="height: 55px;width: 150px;background: #8eaaff;display: flex;
+          <view
+              class="title-font-size"
+              style="height: 55px;background: #8eaaff;display: flex;
           align-items: center;justify-content: center;color: white;font-weight: bold;
           border-radius: 10px;
-          font-size: 18px;
+          padding: 0px 10px;
           ">实付价格<text class="rmb-money">{{param.realityTotalMoney}}</text></view>
         </view>
       </view>
 
-      <view style="background: white;margin: 10px;padding: 10px 20px  20px 20px;font-size: 18px">
+      <view class="def-font-size" style="background: white;margin: 10px;padding: 10px 20px  20px 20px;">
         <view class="details-item">
           <view>{{param.studioName}}</view>
           <view class="rmb-money" style="color: #5eadff;">{{param.price}}/h</view>
@@ -43,8 +45,8 @@
       </view>
 
       <view style="background: white;margin: 10px;padding: 10px 20px;">
-        <view>支付方式</view>
-        <view style="color: #7e7e7e">
+        <view class="def-font-size">支付方式</view>
+        <view class="def-font-size" style="color: #7e7e7e">
           <view style="display: flex;justify-content: space-between;align-items: center;margin: 16px 0px">
             <view  style="flex-grow: 1;display: flex;justify-content: space-between;margin-right: 45px">
               <view>会员卡余额</view>

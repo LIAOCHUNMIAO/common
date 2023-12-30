@@ -74,6 +74,7 @@
 
 
 
+
 /*每个页面公共css */
 
 @charset "UTF-8";
@@ -4782,5 +4783,23 @@ scroll-view.cu-steps .cu-item {
 .custom-nav-content {
   margin-top: 90px;
   z-index: 5;
+}
+.icon-font-size {
+  font-size: 2rem;
+}
+.title-font-size {
+  letter-spacing: 0.1rem;
+  font-size: 1.1rem;
+}
+.def-font-size {
+  letter-spacing: 0.1rem;
+  font-size: 1rem;
+}
+.def-font-spacing {
+  letter-spacing: 0.1rem;
+}
+.details-font-size {
+  letter-spacing: 0.1rem;
+  font-size: .8rem;
 }
 

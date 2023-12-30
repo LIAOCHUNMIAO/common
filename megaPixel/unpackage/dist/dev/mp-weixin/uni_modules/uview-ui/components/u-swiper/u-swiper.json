@@ -1,6 +1,6 @@
 {
+  "component": true,
   "usingComponents": {
     "u-swiper-indicator": "/uni_modules/uview-ui/components/u-swiper-indicator/u-swiper-indicator"
-  },
-  "component": true
+  }
 }

@@ -24,7 +24,7 @@
         this.initConfig()
         // 检查用户登录状态
         //#ifdef H5
-        // this.checkLogin()
+        this.checkLogin()
         //#endif
       },
       initConfig() {
@@ -47,6 +47,7 @@
         // this.getMyLocal()
       },
       checkLogin() {
+      this.dispatch('GetInfo')
         // this.$tab.reLaunch('/pages/auth')
         // if (!getToken()) {
         //   this.$tab.reLaunch('/pages/auth')
