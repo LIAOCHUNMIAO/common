@@ -101,9 +101,9 @@ const user = {
           commit('SET_HAS_PHONE',has)
 
 
-          resolve({status:true,info:res})
+          resolve(res)
         }).catch(error => {
-          reject({status:true,info:error})
+          reject(error)
         })
       })
     },

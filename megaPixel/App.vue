@@ -1,6 +1,6 @@
 <script>
 	  import config from './config'
-	  import store from '@/store'
+
 	  import { getToken } from '@/utils/auth'
 	  import {systemInfo} from '@/utils/myUtils.js' 
   export default {
@@ -24,7 +24,7 @@
         this.initConfig()
         // 检查用户登录状态
         //#ifdef H5
-        this.checkLogin()
+        // this.checkLogin()
         //#endif
       },
       initConfig() {
@@ -47,7 +47,6 @@
         // this.getMyLocal()
       },
       checkLogin() {
-      this.dispatch('GetInfo')
         // this.$tab.reLaunch('/pages/auth')
         // if (!getToken()) {
         //   this.$tab.reLaunch('/pages/auth')
