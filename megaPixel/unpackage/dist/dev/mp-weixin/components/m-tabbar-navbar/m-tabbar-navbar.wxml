@@ -1,1 +1,0 @@
-<view class="main data-v-1214c604" style="{{'padding-top:'+(navTop+'px')+';'+('height:'+(navHeight+'px')+';')}}"><view class="flex-center box data-v-1214c604" style="{{'height:'+(navHeight+'px')+';'}}"><text class="title data-v-1214c604">{{title}}</text></view></view>
