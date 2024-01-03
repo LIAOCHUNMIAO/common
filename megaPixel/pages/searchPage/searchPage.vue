@@ -6,27 +6,31 @@
          class="query-box"
          :style="{height: navHeight + 'px'}">
       <view style="display: flex;align-items: center" @click="openCity">
-        <view class="def-font-size" style="color: white;margin-right: 5px;">{{ queryParams.province }}</view>
+        <view  style="color: white;margin-right: 5px;font-size: 14px">{{ queryParams.province }}</view>
         <view style="height: 18px;width: 18px;padding-top: 2px;color: #ababab" class="mega-pixel-icon icon-down"></view>
       </view>
       <view style="flex-grow: 1;margin-left: 20px">
-        <u-search placeholder="快速搜索" v-model="queryParams.keyword" @search="search" @custom="search"></u-search>
+        <u-search placeholder="快速搜索" :actionStyle="{color: '#fff'}" v-model="queryParams.keyword" @search="search" @custom="search"></u-search>
       </view>
     </view>
 
-    <view>
+    <view style="margin-top: 5px">
       <!-- 搜索结果列表-->
-      <view @click="skip(item)" v-for="(item,index) in list" :key="index"
-            style="display: flex; padding: 10px;margin: 5px;
+      <view
+          v-for="(item,index) in list" :key="index"
+          @click.stop="skip(item)">
+        <van-card
+            :desc="subValue(item.intro,false)"
 
-            border-bottom: 1px solid #e1e1e1;">
-        <view style="width: 60px;height: 60px;flex-shrink: 0;">
-          <image style="width: 100%;height:100%;border-radius: 5px" :src="item.avatar2.url"></image>
-        </view>
-        <view style="margin-left: 20px;">
-          <view class="def-font-size" style="font-weight: bold;margin-bottom: 5px">{{subValue(item.name,true)}}</view>
-          <view class="details-font-size" style="color: #939292">{{subValue(item.intro,false)}}</view>
-        </view>
+        >
+          <view slot="thumb" >
+            <van-image width="75" height="75" :src="item.avatar2.url" />
+          </view>
+
+          <view slot="title" style="font-weight: bold;font-size: 0.8rem">
+            {{subValue(item.name,true)}}
+          </view>
+        </van-card>
       </view>
 
     </view>
@@ -155,12 +159,10 @@ export default {
           return v.substring(0,16)+'...'
         }
       }else {
-        if (v.length> 35){
-          return v.substring(0,35)+'...'
+        if (v.length> 40){
+          return v.substring(0,40)+'...'
         }
       }
-
-
       return v
     }
   }
@@ -172,7 +174,7 @@ export default {
   display: flex;align-items: center;justify-content: space-between;background: #faa1c7;padding:0px 10px;
 }
 page{
-  background-color: #fff;
+  //background-color: #fff;
 }
 /deep/ .u-action-sheet__item-wrap {
   height: 200px;

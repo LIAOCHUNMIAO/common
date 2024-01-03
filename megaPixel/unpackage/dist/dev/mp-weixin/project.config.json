@@ -11,7 +11,6 @@
         "minified": true,
         "newFeature": true,
         "bigPackageSizeSupport": true,
-        "ignoreUploadUnusedFiles": true,
         "babelSetting": {
             "ignore": [],
             "disablePlugins": [],
@@ -19,7 +18,7 @@
         }
     },
     "compileType": "miniprogram",
-    "libVersion": "3.1.2",
+    "libVersion": "3.3.0",
     "appid": "wxe16e1f4ecb20347a",
     "projectname": "megaPixel",
     "condition": {},

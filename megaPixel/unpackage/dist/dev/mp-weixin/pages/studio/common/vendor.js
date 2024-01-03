@@ -1,9 +1,9 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/studio/common/vendor"],{
 
-/***/ 587:
-/*!****************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/stevenMiao/receiveOrders/megaPixel/mixins/auth.js ***!
-  \****************************************************************************************/
+/***/ 280:
+/*!*****************************************************************************************!*\
+  !*** C:/Users/Administrator/Desktop/stevenMiao/commoon/common/megaPixel/mixins/auth.js ***!
+  \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

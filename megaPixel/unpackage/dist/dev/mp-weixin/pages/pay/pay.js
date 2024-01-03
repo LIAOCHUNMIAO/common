@@ -1,9 +1,9 @@
 require('./common/vendor.js');(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/pay/pay"],{
 
 /***/ 220:
-/*!**************************************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/stevenMiao/receiveOrders/megaPixel/main.js?{"page":"pages%2Fpay%2Fpay"} ***!
-  \**************************************************************************************************************/
+/*!***************************************************************************************************************!*\
+  !*** C:/Users/Administrator/Desktop/stevenMiao/commoon/common/megaPixel/main.js?{"page":"pages%2Fpay%2Fpay"} ***!
+  \***************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22,9 +22,9 @@ createPage(_pay.default);
 /***/ }),
 
 /***/ 221:
-/*!*******************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/stevenMiao/receiveOrders/megaPixel/pages/pay/pay.vue ***!
-  \*******************************************************************************************/
+/*!********************************************************************************************!*\
+  !*** C:/Users/Administrator/Desktop/stevenMiao/commoon/common/megaPixel/pages/pay/pay.vue ***!
+  \********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -34,7 +34,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pay_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pay.vue?vue&type=script&lang=js& */ 224);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _pay_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _pay_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 /* harmony import */ var _pay_vue_vue_type_style_index_0_id_c10d0c50_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pay.vue?vue&type=style&index=0&id=c10d0c50&scoped=true&lang=css& */ 228);
-/* harmony import */ var _D_Software_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 49);
+/* harmony import */ var _D_Software_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 37);
 
 var renderjs
 
@@ -63,9 +63,9 @@ component.options.__file = "pages/pay/pay.vue"
 /***/ }),
 
 /***/ 222:
-/*!**************************************************************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/stevenMiao/receiveOrders/megaPixel/pages/pay/pay.vue?vue&type=template&id=c10d0c50&scoped=true& ***!
-  \**************************************************************************************************************************************/
+/*!***************************************************************************************************************************************!*\
+  !*** C:/Users/Administrator/Desktop/stevenMiao/commoon/common/megaPixel/pages/pay/pay.vue?vue&type=template&id=c10d0c50&scoped=true& ***!
+  \***************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -85,9 +85,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 223:
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--17-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/Administrator/Desktop/stevenMiao/receiveOrders/megaPixel/pages/pay/pay.vue?vue&type=template&id=c10d0c50&scoped=true& ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--17-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/Administrator/Desktop/stevenMiao/commoon/common/megaPixel/pages/pay/pay.vue?vue&type=template&id=c10d0c50&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -101,10 +101,7 @@ var components
 try {
   components = {
     commNavbar: function () {
-      return __webpack_require__.e(/*! import() | components/comm-navbar/comm-navbar */ "components/comm-navbar/comm-navbar").then(__webpack_require__.bind(null, /*! @/components/comm-navbar/comm-navbar.vue */ 377))
-    },
-    "u-Input": function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u--input/u--input */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--input/u--input")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--input/u--input.vue */ 384))
+      return __webpack_require__.e(/*! import() | components/comm-navbar/comm-navbar */ "components/comm-navbar/comm-navbar").then(__webpack_require__.bind(null, /*! @/components/comm-navbar/comm-navbar.vue */ 378))
     },
   }
 } catch (e) {
@@ -147,9 +144,9 @@ render._withStripped = true
 /***/ }),
 
 /***/ 224:
-/*!********************************************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/stevenMiao/receiveOrders/megaPixel/pages/pay/pay.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************/
+/*!*********************************************************************************************************************!*\
+  !*** C:/Users/Administrator/Desktop/stevenMiao/commoon/common/megaPixel/pages/pay/pay.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -163,9 +160,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 225:
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--13-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/Administrator/Desktop/stevenMiao/receiveOrders/megaPixel/pages/pay/pay.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--13-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/Administrator/Desktop/stevenMiao/commoon/common/megaPixel/pages/pay/pay.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -177,11 +174,31 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _myConstant2 = _interopRequireDefault(__webpack_require__(/*! @/utils/myConstant */ 36));
-var _index = __webpack_require__(/*! @/api/index */ 38);
+var _myConstant2 = _interopRequireDefault(__webpack_require__(/*! @/utils/myConstant */ 44));
+var _index = __webpack_require__(/*! @/api/index */ 45);
 var _dateUtils = __webpack_require__(/*! ../../utils/dateUtils */ 226);
-var _auth = __webpack_require__(/*! @/utils/auth */ 37);
-var _constant = _interopRequireDefault(__webpack_require__(/*! @/utils/constant */ 35));
+var _auth = __webpack_require__(/*! @/utils/auth */ 31);
+var _constant = _interopRequireDefault(__webpack_require__(/*! @/utils/constant */ 43));
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -555,9 +572,9 @@ exports.default = _default;
 /***/ }),
 
 /***/ 228:
-/*!****************************************************************************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/stevenMiao/receiveOrders/megaPixel/pages/pay/pay.vue?vue&type=style&index=0&id=c10d0c50&scoped=true&lang=css& ***!
-  \****************************************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************!*\
+  !*** C:/Users/Administrator/Desktop/stevenMiao/commoon/common/megaPixel/pages/pay/pay.vue?vue&type=style&index=0&id=c10d0c50&scoped=true&lang=css& ***!
+  \*****************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -571,9 +588,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 229:
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/Administrator/Desktop/stevenMiao/receiveOrders/megaPixel/pages/pay/pay.vue?vue&type=style&index=0&id=c10d0c50&scoped=true&lang=css& ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/Administrator/Desktop/stevenMiao/commoon/common/megaPixel/pages/pay/pay.vue?vue&type=style&index=0&id=c10d0c50&scoped=true&lang=css& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

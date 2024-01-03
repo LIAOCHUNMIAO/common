@@ -67,5 +67,18 @@
   "requiredPrivateInfos": [
     "getLocation"
   ],
-  "usingComponents": {}
+  "usingComponents": {
+    "van-button": "wxcomponents/@vant/vant-weapp/button/index",
+    "van-grid": "wxcomponents/@vant/vant-weapp/grid/index",
+    "van-grid-item": "wxcomponents/@vant/vant-weapp/grid-item/index",
+    "van-cell": "wxcomponents/@vant/vant-weapp/cell/index",
+    "van-cell-group": "wxcomponents/@vant/vant-weapp/cell-group/index",
+    "van-radio": "wxcomponents/@vant/vant-weapp/radio/index",
+    "van-radio-group": "wxcomponents/@vant/vant-weapp/radio-group/index",
+    "van-card": "wxcomponents/@vant/vant-weapp/card/index",
+    "van-field": "wxcomponents/@vant/vant-weapp/field/index",
+    "van-row": "wxcomponents/@vant/vant-weapp/row/index",
+    "van-col": "wxcomponents/@vant/vant-weapp/col/index",
+    "van-image": "wxcomponents/@vant/vant-weapp/image/index"
+  }
 }

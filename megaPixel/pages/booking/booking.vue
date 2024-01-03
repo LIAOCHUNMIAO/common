@@ -30,27 +30,44 @@
           >{{item.day}}</view>
         </view>
       </view>
-			<view  class="def-font-size" style="display: flex;align-items: center;justify-content:space-around">
-				<view style="display: flex;">
-					<view style="height: 20px;width: 20px;background-color: #faa1c7;border-radius: 4px;margin-right: 5px"></view>
-					<view>当前选择的时间</view>
-				</view>
-				<view style="display: flex;">
-					<view style="height: 20px;width: 20px;background-color: #d1d1d1;border-radius: 4px;margin-right: 5px"></view>
-					<view>已被选择的时间</view>
-				</view>
-			</view>
+      <van-row class="def-font-size">
+        <van-col span="12">
+
+          <view style="display: flex;align-items: center;">
+              <view style="height: 20px;width: 20px;background-color: #faa1c7;border-radius: 4px;margin-right: 5px"></view>
+              <view>当前选择的时间</view>
+          </view>
+        </van-col>
+        <van-col span="12">
+          <view style="display: flex;align-items: center;">
+            <view style="height: 20px;width: 20px;background-color: #d1d1d1;border-radius: 4px;margin-right: 5px"></view>
+            <view>已被选择的时间</view>
+          </view>
+        </van-col>
+
+      </van-row>
+
+<!--			<view  class="def-font-size" style="display: flex;align-items: center;justify-content:space-around">-->
+<!--				<view style="display: flex;align-content: center">-->
+
+<!--				</view>-->
+<!--				<view style="display: flex;align-content: center;justify-content: center">-->
+<!--					<view style="height: 20px;width: 20px;background-color: #d1d1d1;border-radius: 4px;margin-right: 5px"></view>-->
+<!--					<view>已被选择的时间</view>-->
+<!--				</view>-->
+<!--			</view>-->
 		</view>
 
     <!-- 时间选择-->
 		<view style="margin-bottom: 50px">
-      <time-select ref="selectTime" @select="timeSelect" :holding-time="disableTimes" :times="tradeTimes"></time-select>
+      <time-select ref="selectTime" @select="timeSelect" style="width: 90%;" :holding-time="disableTimes" :times="tradeTimes"></time-select>
     </view>
 
       <view style="position: fixed;bottom: 0;width: 100%">
         <view style="display: flex;align-items: center;height: 45px">
           <view style="flex-grow: 1;background: #faa1c7;height: 100%;" class="flex-center" @click="yy">
-            <text  style="font-size: 17px;color: #fff;font-weight: bold">预 约</text>
+            <van-button  color="#faa1c7" type="primary" block>预 约</van-button>
+<!--            <text  style="font-size: 17px;color: #fff;font-weight: bold">预 约</text>-->
           </view>
 
         </view>

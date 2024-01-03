@@ -35,7 +35,7 @@
                   <view style="display: flex;align-items: center;padding: 10px;">
                     <view style="height: 24px;width: 24px;padding-top: 2px;color: #ababab"
                           class="mega-pixel-icon icon-home"></view>
-                    <view class="def-font-spacing" style="padding: 4px 15px;flex-grow: 1">{{ studioInfo.studio.intro }}</view>
+                    <view class="def-font-size" style="padding: 4px 15px;flex-grow: 1">{{ studioInfo.studio.intro }}</view>
                   </view>
                 </view>
               </view>
@@ -54,7 +54,7 @@
                     class="mega-pixel-icon icon-position"/>
 
               <view style="flex-grow: 1;padding: 0px 10px;word-wrap:break-word;word-break:break-all;">
-                <text class="def-font-spacing">{{ studioInfo.studio.address }}</text>
+                <text class="def-font-size">{{ studioInfo.studio.address }}</text>
               </view>
               <view style="width: 66px;display: flex">
                 <!-- 复制微信号-->
@@ -262,9 +262,9 @@ export default {
     },
     // 计算盒子高度
     calculateHeight(){
-      let defh = 130;
+      let defh = 120;
       const t = 13;
-      const d = 14;
+      const d = 20;
       const nl =  this.studioInfo.studio.name.length
       let l =  nl/t;
       if (l >1){
@@ -285,9 +285,9 @@ export default {
         if (wy !== 0){
           // 算出行数
           w = parseInt(w)
-          defh = defh+(w*16)
+          defh = defh+(w*14)
         }else {
-          defh = defh+(w*16)-16
+          defh = defh+(w*14)-14
         }
       }
       this.defHeight = defh+'px'

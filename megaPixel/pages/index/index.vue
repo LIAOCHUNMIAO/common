@@ -13,18 +13,32 @@
 		</view>
     <!-- 商品分类 -->
 		<view class="cate-gory">
-			<view class="cate-gory-item" v-for="(item,index) in cateGory" :key="index" @click="goSearch(item)"
-            :style="{
-              filter:item.start? '': 'grayscale(100%)'
-			      }">
-				<view style="width: 50px;height: 50px;padding: 5px;">
-					<img style="width: 100%;height: 100%;border-radius: 8px;" :src="item.img" alt="">
-				</view>
 
-				<view class="def-font-size" style="margin-top: 10px;">
-					{{item.name}}
-				</view>
-			</view>
+      <van-grid gutter="20" column-num="3" icon-size="40">
+        <van-grid-item
+                       v-for="(item,index) in cateGory" :key="index"
+                       :icon="item.img"
+                       :text="item.name"
+                       @click="goSearch(item)"
+                       :style="{
+                      filter:item.start? '': 'grayscale(100%)'
+        			        }"
+
+        />
+      </van-grid>
+
+<!--			<view class="cate-gory-item" v-for="(item,index) in cateGory" :key="index" @click="goSearch(item)"-->
+<!--            :style="{-->
+<!--              filter:item.start? '': 'grayscale(100%)'-->
+<!--			      }">-->
+<!--				<view style="width: 50px;height: 50px;padding: 5px;">-->
+<!--					<img style="width: 100%;height: 100%;border-radius: 8px;" :src="item.img" alt="">-->
+<!--				</view>-->
+
+<!--				<view class="def-font-size" style="margin-top: 10px;">-->
+<!--					{{item.name}}-->
+<!--				</view>-->
+<!--			</view>-->
 
 		</view>
     </view>
@@ -305,14 +319,18 @@ import constant from '@/utils/constant'
 		/* margin: 4px; */
 		/* padding: 5px; */
 	}
+  .grid-icon{
+    width: 50px;
+    height: 50px;
+  }
 
 	.cate-gory {
-		width: 100%;
+		//width: 100%;
 		margin-top: 20px;
-		display: grid;
-		grid-template-columns: auto auto auto;
-		grid-gap: 30px;
-		padding: 15px;
+		//display: grid;
+		//grid-template-columns: auto auto auto;
+		//grid-gap: 30px;
+		//padding: 15px;
 	}
 
 	.cate-gory>.cate-gory-item {

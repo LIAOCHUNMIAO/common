@@ -16,9 +16,12 @@
         <view style="display: flex;justify-content: space-between;align-items: center;margin-bottom: 5px;padding: 5px 10px">
           <view class="title-font-size" style="font-weight: bold;color: #464646">{{ goods.name }}</view>
           <view>
-            <view class="my-submit-button" style="font-weight: bold;" @click="goReservation">
+            <van-button  size="small" style="z-index: 55" color="#faa1c7" type="primary" @click="goReservation">
               预 约
-            </view>
+            </van-button>
+<!--            <view class="my-submit-button" style="font-weight: bold;" @click="goReservation">-->
+<!--              -->
+<!--            </view>-->
           </view>
         </view>
         <view >

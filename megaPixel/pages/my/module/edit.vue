@@ -8,70 +8,53 @@
         <view style="padding: 20px;background: #fff">
           <view class="flex-center" style="flex-direction: column">
             <button class="avatar-style" open-type='chooseAvatar' @chooseavatar="getIcon">
-              <image style="width: 100%;height: 100%;" :src="avatarUrl"/>
+              <van-image
+                  round
+                  width="10rem"
+                  height="10rem"
+                  :src="avatarUrl"
+              />
+<!--              <image style="width: 100%;height: 100%;" :src="avatarUrl"/>-->
             </button>
             <view>头像</view>
           </view>
 
-          <view class="flex-center" style="margin: 10px 0px">
-            <view style="font-weight: bold;font-size: 16px">昵称：</view>
-            <view style="flex-grow: 1">
-              <input
-                  v-model="from.name"
-                  id="userNameInput"
-                  @blur="userNameInput"
-                      class="weui-input"
-                     style="border: 1px solid #dadada;
-                     height: 40px;
-                     font-size: 16px;
-                     padding: 0px 10px;
-                     border-radius: 5px"
-                     type="nickname"
-                     placeholder="请输入昵称"/>
-            </view>
-            <view style="width: 50px;height: 25px;margin:0px 5px;"></view>
-          </view>
+          <van-cell-group>
+            <van-field
+                :value="from.name"
+                label="姓名"
+                clearable
+                placeholder="请输入姓名"
+            />
+            <van-field
+                :value="from.gender"
+                label="性别"
+                clearable
+                placeholder="请选择性别"
+            >
+              <van-button color="#faa1c7" slot="button" size="small" type="primary" @click="genderShow = true">
+                选择性别
+              </van-button>
+            </van-field>
 
-
-          <view class="flex-center">
-            <view style="font-weight: bold;font-size: 16px">性别：</view>
-            <view style="flex-grow: 1">
-              <u--input
-                  style="width: 100%"
-                  placeholder="请输入"
-                  border="surround"
-                  v-model="from.gender"
-                  disabled
-              ></u--input>
-            </view>
-            <view @click="genderShow = true" class="flex-center"
-                  style="width: 50px;height: 25px;background:  #faa1c7;margin:0px 5px;border-radius: 5px;color: #fff">
-              选择
-            </view>
-          </view>
-          <view class="flex-center" style="margin-top: 10px;">
-            <view style="font-weight: bold;font-size: 16px">地区：</view>
-            <view style="flex-grow: 1">
-              <u--input
-                  style="width: 100%"
-                  placeholder="请输入"
-                  border="surround"
-                  v-model="from.province"
-                  disabled
-              ></u--input>
-            </view>
-            <view @click="cityShow = true" class="flex-center"
-                  style="width: 50px;height: 25px;background:  #faa1c7;margin:0px 5px;border-radius: 5px;color: #fff">
-              选择
-            </view>
-          </view>
-
+            <van-field
+                :value="from.gender"
+                label="地区"
+                clearable
+                placeholder="请选择地区"
+            >
+              <van-button color="#faa1c7" slot="button" size="small" type="primary" @click="cityShow = true">
+                选择地区
+              </van-button>
+            </van-field>
+          </van-cell-group>
 
         </view>
         <view style="position: fixed;bottom: 0;width: 100%">
           <view style="display: flex;align-items: center;height: 45px">
-            <button style="flex-grow: 1;background: #faa1c7;height: 100%;font-size: 17px;color: #fff;font-weight: bold"
-            formType="submit">提 交</button>
+            <van-button style="flex-grow:1" color="#faa1c7" type="primary" block  formType="submit">提 交</van-button>
+<!--            <button style="flex-grow: 1;background: #faa1c7;height: 100%;font-size: 17px;color: #fff;font-weight: bold"-->
+<!--            formType="submit">提 交</button>-->
           </view>
         </view>
       </form>

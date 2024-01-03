@@ -2,83 +2,125 @@
 	<view>
     <comm-navbar title="详情"></comm-navbar>
 
-    <view class="custom-nav-content">
-      <view style="margin:10px;padding-top:10px;display: flex;justify-content: space-between;align-items: center">
+    <view class="custom-nav-content" style="padding:0px 10px">
+      <view style="margin:10px;display: flex;justify-content: space-between;align-items: center">
 
         <image style="width: 150px;height: 100px" :src="imgUrl" @click="showImg(imgUrl)"></image>
         <view style="display: flex;
         letter-spacing: 2px;
           align-items: center;">
-
-          <view
-              class="title-font-size"
-              style="height: 55px;background: #8eaaff;display: flex;
-          align-items: center;justify-content: center;color: white;font-weight: bold;
-          border-radius: 10px;
-          padding: 0px 10px;
-          ">实付价格<text class="rmb-money">{{param.realityTotalMoney}}</text></view>
+          <van-button type="info">￥实付价格{{param.realityTotalMoney}}</van-button>
+<!--          <view-->
+<!--              class="title-font-size"-->
+<!--              style="height: 55px;background: #8eaaff;display: flex;-->
+<!--          align-items: center;justify-content: center;color: white;font-weight: bold;-->
+<!--          border-radius: 10px;-->
+<!--          padding: 0px 10px;-->
+<!--          ">实付价格<text class="rmb-money">{{param.realityTotalMoney}}</text></view>-->
         </view>
       </view>
+      <van-cell-group >
+        <van-cell :title="param.studioName" >
+            <view style="color: #5eadff;" class="rmb-money">{{param.price}}</view>
+        </van-cell>
+        <van-cell title="会员卡余额" >
+          <view style="color: #5eadff;" class="rmb-money">{{preferential}}</view>
+        </van-cell>
+        <van-cell title="日期" :value="date" />
+        <van-cell title="时间" :value="time" />
+        <van-cell title="数量" :value="param.amount+'小时'" />
+      </van-cell-group>
 
-      <view class="def-font-size" style="background: white;margin: 10px;padding: 10px 20px  20px 20px;">
-        <view class="details-item">
-          <view>{{param.studioName}}</view>
-          <view class="rmb-money" style="color: #5eadff;">{{param.price}}/h</view>
-        </view>
-        <view class="details-item">
-          <view>会员优惠</view>
-          <view  class="rmb-money" style="color: #5eadff;">{{preferential}}</view>
-        </view>
-        <view class="details-item">
-          <view>日期</view>
-          <view>{{date}}</view>
-        </view>
-        <view class="details-item">
-          <view>时间</view>
-          <view>{{time}}</view>
-        </view>
-        <view class="details-item">
-          <view>数量</view>
-          <view>{{param.amount}}小时</view>
-        </view>
-<!--        <view>赠送222</view>-->
-      </view>
 
-      <view style="background: white;margin: 10px;padding: 10px 20px;">
-        <view class="def-font-size">支付方式</view>
-        <view class="def-font-size" style="color: #7e7e7e">
-          <view style="display: flex;justify-content: space-between;align-items: center;margin: 16px 0px">
-            <view  style="flex-grow: 1;display: flex;justify-content: space-between;margin-right: 45px">
-              <view>会员卡余额</view>
-              <view>剩余 ￥0</view>
-            </view>
+<!--      <view class="def-font-size" style="background: white;margin: 10px;padding: 10px 20px  20px 20px;">-->
+<!--        <view class="details-item">-->
+<!--          <view>{{param.studioName}}</view>-->
+<!--          <view class="rmb-money" style="color: #5eadff;">{{param.price}}/h</view>-->
+<!--        </view>-->
+<!--        <view class="details-item">-->
+<!--          <view>会员优惠</view>-->
+<!--          <view  class="rmb-money" style="color: #5eadff;">{{preferential}}</view>-->
+<!--        </view>-->
+<!--        <view class="details-item">-->
+<!--          <view>日期</view>-->
+<!--          <view>{{date}}</view>-->
+<!--        </view>-->
+<!--        <view class="details-item">-->
+<!--          <view>时间</view>-->
+<!--          <view>{{time}}</view>-->
+<!--        </view>-->
+<!--        <view class="details-item">-->
+<!--          <view>数量</view>-->
+<!--          <view>{{param.amount}}小时</view>-->
+<!--        </view>-->
+<!--      </view>-->
 
-            <view  style="width: 20px;height: 20px;border: 2px solid #b0b0b0; border-radius: 50%;">
-<!--              <view v-if="param.payType !== myConstant.payType.vxPay" style="border-radius: 50%;width: 10px;height: 10px;background: #b0b0b0;margin: 3px"></view>-->
-            </view>
 
-          </view>
-          <view style="display: flex;justify-content: space-between;align-items: center;">
-            <view>微信转账</view>
-            <view  style="width: 20px;height: 20px;border: 2px solid #b0b0b0; border-radius: 50%;"
-                   @click="payTypeHandle(myConstant.payType.vxPay)"
-            >
-              <view v-if="param.payType === myConstant.payType.vxPay" style="border-radius: 50%;width: 10px;height: 10px;background: #b0b0b0;margin: 3px"></view>
-            </view>
-        </view>
-      </view>
+      <view style="background: white;margin-top: 10px;">
+        <van-radio-group :value="param.payType">
+          <van-cell-group title="支付方式">
+            <van-cell title="会员卡余额" clickable :data-name="myConstant.payType.vipPay">
+              <view style="display: flex;align-items: center;justify-content: flex-end">
+                <view style="color: #5eadff;margin-right: 40px" class="rmb-money" >0</view>
+                <van-radio disabled :name="myConstant.payType.vipPay" />
+              </view>
+
+            </van-cell>
+            <van-cell title="微信转账" clickable :data-name="myConstant.payType.vxPay">
+              <view style="display: flex;align-items: center;justify-content: flex-end">
+                <van-radio slot="right-icon" :name="myConstant.payType.vxPay" />
+              </view>
+            </van-cell>
+          </van-cell-group>
+        </van-radio-group>
+
+<!--        <van-cell-group >-->
+<!--          <van-cell title="会员卡余额" >-->
+<!--            <view style="color: #5eadff;" class="rmb-money">0</view>-->
+<!--          </van-cell>-->
+<!--          <van-cell title="会员卡余额" >-->
+<!--            <view style="color: #5eadff;" class="rmb-money">{{preferential}}</view>-->
+<!--          </van-cell>-->
+<!--          <van-cell title="会员卡余额" :value="date" />-->
+<!--          <van-cell title="时间" :value="time" />-->
+<!--          <van-cell title="数量" :value="param.amount+'小时'" />-->
+<!--        </van-cell-group>-->
+
+<!--        <view class="def-font-size">支付方式</view>-->
+<!--        <view class="def-font-size" style="color: #7e7e7e">-->
+<!--          <view style="display: flex;justify-content: space-between;align-items: center;margin: 16px 0px">-->
+<!--            <view  style="flex-grow: 1;display: flex;justify-content: space-between;margin-right: 45px">-->
+<!--              <view>会员卡余额</view>-->
+<!--              <view>剩余 ￥0</view>-->
+<!--            </view>-->
+
+<!--            <view  style="width: 20px;height: 20px;border: 2px solid #b0b0b0; border-radius: 50%;">-->
+<!--&lt;!&ndash;              <view v-if="param.payType !== myConstant.payType.vxPay" style="border-radius: 50%;width: 10px;height: 10px;background: #b0b0b0;margin: 3px"></view>&ndash;&gt;-->
+<!--            </view>-->
+
+<!--          </view>-->
+<!--          <view style="display: flex;justify-content: space-between;align-items: center;">-->
+<!--            <view>微信转账</view>-->
+<!--            <view  style="width: 20px;height: 20px;border: 2px solid #b0b0b0; border-radius: 50%;"-->
+<!--                   @click="payTypeHandle(myConstant.payType.vxPay)"-->
+<!--            >-->
+<!--              <view v-if="param.payType === myConstant.payType.vxPay" style="border-radius: 50%;width: 10px;height: 10px;background: #b0b0b0;margin: 3px"></view>-->
+<!--            </view>-->
+<!--        </view>-->
+<!--      </view>-->
 
     </view>
     </view>
     <view style="position: fixed;bottom: 0;width: 100%;">
       <view style="display: flex;align-items: center;height: 45px">
-
-        <view style="flex-grow: 1;background: #faa1c7;height: 100%;" class="flex-center" @click="goBack">
-          <text  style="font-size: 17px;color: #fff;font-weight: bold">返 回</text>
-        </view>
-        <view  style="flex-grow: 1;background: #faa1c7;height: 100%;" class="flex-center" @click="next">
-          <text  style="font-size: 17px;color: #fff;font-weight: bold">下一步</text>
-        </view>
+        <van-button style="flex-grow:1" color="#faa1c7" type="primary" block  @click="goBack">返 回</van-button>
+        <van-button style="flex-grow:1" color="#faa1c7" type="primary" block  @click="next">下一步</van-button>
+<!--        <view style="flex-grow: 1;background: #faa1c7;height: 100%;" class="flex-center" @click="goBack">-->
+<!--          <text  style="font-size: 17px;color: #fff;font-weight: bold">返 回</text>-->
+<!--        </view>-->
+<!--        <view  style="flex-grow: 1;background: #faa1c7;height: 100%;" class="flex-center" @click="next">-->
+<!--          <text  style="font-size: 17px;color: #fff;font-weight: bold">下一步</text>-->
+<!--        </view>-->
 <!--        <u-button type="primary"  color="#faa1c7" @click="goBack">-->
 <!--          <text style="font-size: 16px">返 回</text>-->
 <!--        </u-button>-->

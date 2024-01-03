@@ -39,14 +39,14 @@
         <view v-else>
           <view class="bj-color">
             <view class="flex-between title-font-size" >
-              <view>请添加商家微信并支付</view>
+              <view class="title-font-size">请添加商家微信并支付</view>
               <view style="padding-right: 20px;color: #3c9cff;" class="rmb-money">{{ payInfo.totalAmount }}</view>
             </view>
 <!--            <view style="margin-top: 20px">请备注个人昵称及电话，商家确认后预定成功</view>-->
 <!--            <view>长时间未确认请联系商家-->
 <!--              <text style="color: red;margin-left: 10px">请截取转账截图并上传</text>-->
 <!--            </view>-->
-            <view class="def-font-size" style="display: flex;align-items: flex-end;justify-content: space-around;margin-top: 20px">
+            <view class="title-font-size" style="display: flex;align-items: flex-end;justify-content: space-around;margin-top: 20px">
 
               <view>
                 <view >商家微信</view>
@@ -65,14 +65,17 @@
                 </view>
                 <view style="margin-left: 50px">
                   <view></view>
-                  <view @click="copy"
-                        style="color: white;height: 33px;
-                        padding: 0px 10px;;
-                        display: flex;align-items: center;justify-content: center;
-                        border-radius: 10px"
-                        class="my-bj-topic-color def-font-size"
-                  >复制微信号
+                  <view>
+                    <van-button size="small" @click="copy" color="#faa1c7" type="primary" block>复制微信号</van-button>
                   </view>
+<!--                  <view @click="copy"-->
+<!--                        style="color: white;height: 33px;-->
+<!--                        padding: 0px 10px;;-->
+<!--                        display: flex;align-items: center;justify-content: center;-->
+<!--                        border-radius: 10px"-->
+<!--                        class="my-bj-topic-color def-font-size"-->
+<!--                  >复制微信号-->
+<!--                  </view>-->
                 </view>
 
 <!--                <view @click="open" style="width: 100px;height: 120px;-->
@@ -97,28 +100,42 @@
 
         </view>
         <view class="bj-color def-font-size">
+          <van-cell-group>
+            <van-field
+                :value="form.name"
+                label="姓名"
+                clearable
+                placeholder="请输入姓名"
+            />
 
-          <view class="flex-around " style="margin: 5px 0px">
-            <view style="width: 90px;display: flex;align-items: center;justify-content: center">姓名</view>
-            <view>
-              <u--input
-                  border="none"
-                  v-model="form.name"
-              ></u--input>
-            </view>
-          </view>
-          <view class="flex-around">
-            <view style="width: 90px;display: flex;align-items: center;justify-content: center">
-              电话
-            </view>
-            <view>
-              <u--input
-                  border="none"
-                  v-model="form.phone"
-              ></u--input>
-            </view>
-          </view>
-        </view>
+            <van-field
+                :value="form.phone"
+                label="电话"
+                clearable
+                placeholder="请输入电话"
+            />
+          </van-cell-group>
+<!--          <view class="flex-around " style="margin: 5px 0px">-->
+<!--            <view style="width: 90px;display: flex;align-items: center;justify-content: center">姓名</view>-->
+<!--            <view>-->
+<!--              <u&#45;&#45;input-->
+<!--                  border="none"-->
+<!--                  v-model="form.name"-->
+<!--              ></u&#45;&#45;input>-->
+<!--            </view>-->
+<!--          </view>-->
+<!--          <view class="flex-around">-->
+<!--            <view style="width: 90px;display: flex;align-items: center;justify-content: center">-->
+<!--              电话-->
+<!--            </view>-->
+<!--            <view>-->
+<!--              <u&#45;&#45;input-->
+<!--                  border="none"-->
+<!--                  v-model="form.phone"-->
+<!--              ></u&#45;&#45;input>-->
+<!--            </view>-->
+<!--          </view>-->
+<!--        </view>-->
 <!--        <view class="bj-color">-->
 <!--          <view>商家微信</view>-->
 <!--          <view class="flex-between">-->
@@ -148,17 +165,20 @@
 <!--            </view>-->
 <!--          </view>-->
 
-<!--        </view>-->
+        </view>
       </view>
 
       <view style="position: fixed;bottom: 0;width: 100%">
         <view style="display: flex;align-items: center;height: 45px">
-          <view style="flex-grow: 1;background: #faa1c7;height: 100%;" class="flex-center"  @click="goBack">
-            <text style="font-size: 17px;color: #fff;font-weight: bold">返 回</text>
-          </view>
-          <view style="flex-grow: 1;background: #faa1c7;height: 100%;" class="flex-center" @click="finish" >
-            <text style="font-size: 17px;color: #fff;font-weight: bold">下一步</text>
-          </view>
+          <van-button style="flex-grow:1" color="#faa1c7" type="primary" block  @click="goBack">返 回</van-button>
+          <van-button style="flex-grow:1" color="#faa1c7" type="primary" block  @click="finish">下一步</van-button>
+
+<!--          <view style="flex-grow: 1;background: #faa1c7;height: 100%;" class="flex-center"  @click="goBack">-->
+<!--            <text style="font-size: 17px;color: #fff;font-weight: bold">返 回</text>-->
+<!--          </view>-->
+<!--          <view style="flex-grow: 1;background: #faa1c7;height: 100%;" class="flex-center" @click="finish" >-->
+<!--            <text style="font-size: 17px;color: #fff;font-weight: bold">下一步</text>-->
+<!--          </view>-->
         </view>
       </view>
     </view>

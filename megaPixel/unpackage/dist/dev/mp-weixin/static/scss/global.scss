@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "alim"; /* Project id 4289474 */
+  src: url('@/static/font/AlimamaDaoLiTi.ttf') format('truetype');
+}
+
 .text-center {
 	text-align: center;
 }
@@ -114,15 +119,17 @@
 }
 
 .my-submit-button{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 80px;
-  height: 35px;
+  padding: 0 15px;
+  font-size: 14px;
+  //display: flex;
+  //align-items: center;
+  //justify-content: center;
+  //width: 80px;
+  //height: 35px;
   background: #faa1c7;
-  border-radius: 20px;
+  //border-radius: 20px;
   color: white;
-  font-size: 16px;
+  //font-size: 16px;
 }
 .rmb-money::before{
   content: '￥';
@@ -138,12 +145,13 @@
   font-size: 2rem;
 }
 .title-font-size {
-  letter-spacing: 0.1rem;
-  font-size: 1.1rem;
+  letter-spacing: 0.05rem;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 .def-font-size {
-  letter-spacing: 0.1rem;
-  font-size: 1rem;
+  letter-spacing: 0.05rem;
+  font-size: 0.7rem;
 }
 .def-font-spacing {
   letter-spacing: 0.1rem;
@@ -151,4 +159,8 @@
 .details-font-size {
   letter-spacing: 0.1rem;
   font-size: .8rem;
+}
+body{
+  font-family: "Microsoft YaHei UI";
+  //font-family: url('./static/font/AlimamaDaoLiTi.ttf');
 }
