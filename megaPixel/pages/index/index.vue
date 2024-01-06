@@ -18,13 +18,15 @@
         <van-grid-item
                        v-for="(item,index) in cateGory" :key="index"
                        :icon="item.img"
-                       :text="item.name"
                        @click="goSearch(item)"
                        :style="{
                       filter:item.start? '': 'grayscale(100%)'
         			        }"
-
-        />
+        >
+          <view slot="text" style="padding-top: 10px;font-weight: bold;font-size: 15px">
+            {{item.name}}
+          </view>
+        </van-grid-item>
       </van-grid>
 
 <!--			<view class="cate-gory-item" v-for="(item,index) in cateGory" :key="index" @click="goSearch(item)"-->

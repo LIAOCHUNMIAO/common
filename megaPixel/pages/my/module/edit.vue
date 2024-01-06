@@ -1,6 +1,6 @@
 <template>
   <view>
-    <comm-navbar title="编辑"></comm-navbar>
+    <comm-navbar title="编辑" :bgColor="'#ff8cad'" :title-color="'#fff'"  :is-top="true"></comm-navbar>
     <comm-empty/>
     <view>
       <form  @submit="formSubmit">
@@ -8,13 +8,13 @@
         <view style="padding: 20px;background: #fff">
           <view class="flex-center" style="flex-direction: column">
             <button class="avatar-style" open-type='chooseAvatar' @chooseavatar="getIcon">
-              <van-image
-                  round
-                  width="10rem"
-                  height="10rem"
-                  :src="avatarUrl"
-              />
-<!--              <image style="width: 100%;height: 100%;" :src="avatarUrl"/>-->
+<!--              <van-image-->
+<!--                  round-->
+<!--                  width="10rem"-->
+<!--                  height="10rem"-->
+<!--                  :src="avatarUrl"-->
+<!--              />-->
+              <image style="width: 100%;height: 100%;" :src="avatarUrl"/>
             </button>
             <view>头像</view>
           </view>
@@ -106,8 +106,10 @@ import myConstant from "@/utils/myConstant";
 import {updateInfo, uploadUrl} from "@/api/index";
 import {newDateTime} from "@/utils/dateUtils";
 import {getToken} from "@/utils/auth";
+import CommNavbar from "../../../components/comm-navbar/comm-navbar.vue";
 
 export default {
+  components: {CommNavbar},
   data() {
     return {
       action: uploadUrl,

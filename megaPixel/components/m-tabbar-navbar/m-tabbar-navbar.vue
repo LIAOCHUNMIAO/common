@@ -32,11 +32,11 @@ export default {
   top: 0;
   left: 0;
   z-index: 999;
-  background: #faa1c7;
+  background: #ff8cad;
 }
 
 .box {
-  background: #faa1c7;
+  background: #ff8cad;
 }
 
 .title {

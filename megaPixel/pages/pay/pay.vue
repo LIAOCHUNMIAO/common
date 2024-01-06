@@ -244,6 +244,14 @@ export default {
 
   },
   onLoad(e) {
+    wx.setNavigationBarColor({
+      frontColor: '#000000',
+      backgroundColor: '#f8f8f8',
+      animation: {
+        duration: 400,
+        timingFunc: 'easeIn'
+      }
+    })
     console.log(JSON.parse(e.data))
     this.form.name = this.$store.getters.name
     this.form.phone = uni.getStorageSync(constant.userPhone)

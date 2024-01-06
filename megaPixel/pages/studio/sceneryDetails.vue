@@ -12,11 +12,11 @@
 
     <view style="padding-top: 45px">
 
-      <view class="content-Box" style="padding: 5px 20px;z-index: 4;" v-if="curNow === 0">
+      <view class="content-Box" style="padding: 5px 30px;z-index: 4;" v-show="curNow === 0">
         <view style="display: flex;justify-content: space-between;align-items: center;margin-bottom: 5px;padding: 5px 10px">
-          <view class="title-font-size" style="font-weight: bold;color: #464646">{{ goods.name }}</view>
+          <view style="font-weight: bold;color: #464646;letter-spacing: 0.05rem;font-size: 1rem;font-weight: bold">{{ goods.name }}</view>
           <view>
-            <van-button  size="small" style="z-index: 55" color="#faa1c7" type="primary" @click="goReservation">
+            <van-button  size="small" style="z-index: 55" color="#ff8cad" type="primary" @click="goReservation">
               预 约
             </van-button>
 <!--            <view class="my-submit-button" style="font-weight: bold;" @click="goReservation">-->
@@ -43,14 +43,13 @@
 
         </view>
       </view>
-      <view style="padding: 5px 20px;z-index: 4;" v-else>
-
+      <view v-show="curNow === 1" style="padding: 5px 30px;z-index: 4;">
         <view v-for="(item,index) in sample" :key="index"
-              style="background: #fff;border-radius: 0px 0px 5px 5px;margin-bottom: 15px">
-          <image style="width: 100%;" :src="item.sceneryPhoto.url" @click="previewImg(item)"/>
-          <view style="display: flex;justify-content: space-between;padding: 15px 15px">
-            <view>
-              <view class="def-font-size">{{ item.detail }}</view>
+              style="background: #fff;border-radius: 0px 0px 5px 5px;margin-bottom: 15px;padding-bottom: 3px">
+          <image style="width: 100%;" mode="widthFix" :src="item.sceneryPhoto.url" @click="previewImg(item)"/>
+          <view style="display: flex;justify-content: space-between;padding: 5px 15px">
+            <view >
+              <view class="def-font-size" style="color: #646566">{{ item.detail }}</view>
             </view>
           </view>
         </view>
@@ -93,7 +92,14 @@ export default {
   },
 
   onLoad(e) {
-    console.log(this.params)
+    wx.setNavigationBarColor({
+      frontColor: '#000000',
+      backgroundColor: '#f8f8f8',
+      animation: {
+        duration: 400,
+        timingFunc: 'easeIn'
+      }
+    })
     uni.showShareMenu({
       withShareTicket: true,
       //设置下方的Menus菜单，才能够让发送给朋友与分享到朋友圈两个按钮可以点击
@@ -142,7 +148,9 @@ export default {
     },
 
     sectionChange(index) {
-      this.curNow = index;
+      this.$nextTick(()=>{
+        this.curNow = index;
+      })
     },
     goReservation() {
       const param = {

@@ -2,7 +2,7 @@
 	<view>
     <m-tabbar-navbar title="个人中心"/>
     <comm-empty/>
-		<view style="height: 70px;background-color: #faa1c7;display: flex;align-items: center;padding: 0px 10px;">
+		<view class="my-bj-topic-color" style="height: 70px;display: flex;align-items: center;padding: 0px 10px;">
       <!-- 头像 -->
       <u-avatar size="55" :src="userInfo.avatarUrl"></u-avatar>
       <!-- 昵称 -->

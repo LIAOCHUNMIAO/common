@@ -12,23 +12,26 @@
 
       <view style="">
         <!-- 摄影棚-->
-        <view v-if="curNow === 0" style="padding: 5px 20px">
+        <view v-if="curNow === 0" style="padding: 5px 30px">
           <!-- 预约商品列表-->
-          <view v-for="(item,index) in studioList" :key="index" style="z-index: 50;background: #fff;border-radius: 0px 0px 5px 5px;margin-bottom: 10px">
-            <image  @click="goDetails(item)" style="width: 100%;" mode="widthFix" :src="item.sceneryPhotoRelations[0].sceneryPhoto.url"></image>
+          <view v-for="(item,index) in studioList" :key="index"
+                @click="goDetails(item)"
+                style="z-index: 50;background: #fff;border-radius: 0px 0px 5px 5px;margin-bottom: 15px">
+            <image   style="width: 100%;" mode="widthFix" :src="item.sceneryPhotoRelations[0].sceneryPhoto.url"></image>
             <view style="padding: 15px 15px">
               <view style="display: flex;justify-content: space-between;align-items: center">
-                <view class="title-font-size" style="margin-bottom: 10px">{{ item.name }}</view>
-                <view  class="rmb-money flex-center def-font-size" style="margin-bottom: 10px;color: #48b0d0;width: 80px">{{ item.price }}/h</view>
+                <view class="" style="margin-bottom: 5px; letter-spacing: 0.05rem;font-size: 1rem;font-weight: bold">{{ item.name }}</view>
+                <view  class="rmb-money flex-center"
+                       style="margin-bottom: 5px;color: #48b0d0;width: 80px;letter-spacing: 0.05rem;font-size: 1rem;">
+                  {{ item.price }}/h</view>
               </view>
               <view style="display: flex;justify-content: space-between;align-items: center;">
-                <view class="def-font-size">{{ item.intro }}</view>
+                <view class="def-font-size"  style="color: #646566">{{ item.intro }}</view>
 
-                <view style="width: 80px" class="flex-center">
-                  <van-button  style="z-index: 55" color="#faa1c7" type="primary" @click.stop="goBooking(item)" size="small">预  约</van-button>
-<!--                  <view class="my-submit-button" @click.stop="goBooking(item)" style="z-index: 55">-->
-<!--                    预  约-->
-<!--                  </view>-->
+                <view style="width: 80px;z-index: 55" class="flex-center">
+                  <text style="z-index: 59;padding: 7px 12px;font-size: 12px;color: #fff" @click.stop="goBooking(item)" class="my-bj-topic-color">预  约</text>
+<!--                  <van-button  style="z-index: 59" color="#ff8cad" type="primary" @click.stop="goBooking(item)" size="small"></van-button>-->
+
                 </view>
               </view>
             </view>
@@ -107,16 +110,24 @@ import CommNavbar from "../../components/comm-navbar/comm-navbar.vue";
             icon: 'icon-lease',
             page: '/pages/studio/lease'
           },
-          {
-            text: '会员',
-            name: 'studioVip',
-            icon: 'icon-vip',
-            page: '/pages/studio/vip'
-          },
+          // {
+          //   text: '会员',
+          //   name: 'studioVip',
+          //   icon: 'icon-vip',
+          //   page: '/pages/studio/vip'
+          // },
         ],
 			}
 		},
     onLoad(e) {
+      wx.setNavigationBarColor({
+        frontColor: '#000000',
+        backgroundColor: '#f8f8f8',
+        animation: {
+          duration: 400,
+          timingFunc: 'easeIn'
+        }
+      })
       const data =  JSON.parse(e.data)
       this.studioId = data.studioId
       this.title = data.title

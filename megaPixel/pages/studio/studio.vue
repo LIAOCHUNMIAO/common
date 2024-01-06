@@ -5,8 +5,6 @@
     <view style="position: relative">
 
       <view style="height: auto">
-
-        <!--           380px-->
         <u-swiper :list="coverList" height='250' key="url" @click="showImg"></u-swiper>
 
 
@@ -31,11 +29,18 @@
                 <view class="flex-center" style="padding: 0px 10px">
                   <view  class="studio-name def-font-spacing">{{ studioInfo.studio.name }}</view>
                 </view>
-                <view style="margin: 0px 10px">
+                <view  style="margin: 0px 10px">
                   <view style="display: flex;align-items: center;padding: 10px;">
                     <view style="height: 24px;width: 24px;padding-top: 2px;color: #ababab"
                           class="mega-pixel-icon icon-home"></view>
-                    <view class="def-font-size" style="padding: 4px 15px;flex-grow: 1">{{ studioInfo.studio.intro }}</view>
+                    <view
+                        ref="box"
+                        id="box"
+                          style="padding: 4px 15px;flex-grow: 1;color: #646566;
+                          letter-spacing: 0.05rem;
+                          font-size: 12px;
+">
+                      {{ studioInfo.studio.intro }}</view>
                   </view>
                 </view>
               </view>
@@ -54,7 +59,9 @@
                     class="mega-pixel-icon icon-position"/>
 
               <view style="flex-grow: 1;padding: 0px 10px;word-wrap:break-word;word-break:break-all;">
-                <text class="def-font-size">{{ studioInfo.studio.address }}</text>
+                <text  style="color: #646566;
+                letter-spacing: 0.05rem;
+                          font-size: 12px;">{{ studioInfo.studio.address }}</text>
               </view>
               <view style="width: 66px;display: flex">
                 <!-- 复制微信号-->
@@ -134,18 +141,25 @@ export default {
           icon: 'icon-lease',
           page: '/pages/studio/lease'
         },
-        {
-          text: '会员',
-          name: 'studioVip',
-          icon: 'icon-vip',
-          page: '/pages/studio/vip'
-        },
+        // {
+        //   text: '会员',
+        //   name: 'studioVip',
+        //   icon: 'icon-vip',
+        //   page: '/pages/studio/vip'
+        // },
       ],
       defHeight: '130px'
     }
   },
   onLoad(e) {
-
+    wx.setNavigationBarColor({
+      frontColor: '#000000',
+      backgroundColor: '#f8f8f8',
+      animation: {
+        duration: 400,
+        timingFunc: 'easeIn'
+      }
+    })
     const data = JSON.parse(e.data)
 
     this.studioId = data.studioId
@@ -242,10 +256,8 @@ export default {
       uni.makePhoneCall({
         phoneNumber: this.phone,//电话号码
         success: function (e) {
-          console.log(e);
         },
         fail: function (e) {
-          console.log(e);
         }
       })
     },
@@ -262,37 +274,44 @@ export default {
     },
     // 计算盒子高度
     calculateHeight(){
-      let defh = 120;
-      const t = 13;
-      const d = 20;
+      let defh = 125;
+      const t = 10; // 标题一行长度
+      const d = 16; // intro一行长度
       const nl =  this.studioInfo.studio.name.length
+      const titleNameSize = 20
+      const introSize = 13
       let l =  nl/t;
+
       if (l >1){
         const l1 =  nl%t;
         if (l1 !== 0){
           // 算出行数
           l = parseInt(l)
-          defh = defh+(l*20)
+          defh = defh+(l*titleNameSize)
         }else {
-          defh = defh+(l*20)-20
+          defh = defh+(l*titleNameSize)-titleNameSize
         }
       }
 
       const dl = this.studioInfo.studio.intro.length
       let w =  dl/d;
+      console.log(w)
       if (w >1){
         const wy =  dl%d;
+        console.log(wy)
         if (wy !== 0){
           // 算出行数
           w = parseInt(w)
-          defh = defh+(w*14)
+
+          const ff = w%2;
+          console.log(ff)
+
+          defh = defh+(w*introSize)
         }else {
-          defh = defh+(w*14)-14
+          defh = defh+(w*introSize)-introSize
         }
       }
       this.defHeight = defh+'px'
-
-
     }
   }
 }

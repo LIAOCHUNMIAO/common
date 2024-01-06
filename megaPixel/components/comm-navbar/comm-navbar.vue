@@ -1,12 +1,12 @@
 <template>
 <view class="main" :style="{background: bgColor,paddingTop: navTop + 'px', height: navHeight + 'px'}">
   <view class="box" :style="{background: bgColor,height: navHeight + 'px'}">
-    <view style="margin-left: 2px;" @click="goBack()">
-      <view style="font-size: 22px;color: #ffffff" class="mega-pixel-icon icon-left"></view>
+    <view style="margin:0px 4px;" @click="goBack()">
+      <view :style="{ fontSize: isTop?'20px':'19px',color: titleColor}" class="mega-pixel-icon icon-left"></view>
     </view>
     <view style="flex-grow: 1">
-      <view class="flex-center" style="padding-right: 24px">
-        <text :style="{color: titleColor,fontSize: lenCross?'15px':'19px'}" class="title">{{title}}</text>
+      <view  style="padding-right: 24px;" :class="[isTop? 'flex-center':'']" >
+        <text :style="{color: titleColor,fontSize: isTop?'19px':'16px',fontWeight: isTop?'bold':''}" class="title">{{title}}</text>
       </view>
     </view>
   </view>
@@ -22,15 +22,19 @@ export default {
       },
       titleColor:{
         type: String,
-        default: '#ffffff'
+        default: '#5B5B5B'
       },
       bgColor:{
         type: String,
-        default: '#faa1c7'
+        default: '#f8f8f8'
       },
       autoBack:{
         type: Boolean,
         default: true
+      },
+      isTop:{
+        type: Boolean,
+        default: false
       },
       // leftClick:{
       //   type: Function,
@@ -51,6 +55,12 @@ export default {
           }
       }
   },
+  // onReady() {
+  //   //动态修改状态栏的颜色
+  //   uni.setNavigationBarColor({
+  //     frontColor: this.isTop? '#fff': '#000'
+  //   })
+  // },
     data() {
       return {
         navHeight: getApp().globalData.config.navHeight,
@@ -58,7 +68,15 @@ export default {
         lenCross: false
       }
     },
+    onLoad(){
+
+    },
     created() {
+
+      // wx.setNavigationBarColor({
+      //   fontColor: this.isTop ? 'white': 'black',
+      //   backgroundColor: '#000000',
+      // })
     },
     methods: {
       goBack(){
@@ -89,8 +107,8 @@ export default {
   height: 90px
 }
 .title{
-  font-size: 19px;
-  font-weight: bold;
+  font-size: 16px;
+  //font-weight: bold;
 }
 
 </style>

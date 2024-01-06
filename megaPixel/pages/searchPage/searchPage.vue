@@ -1,6 +1,6 @@
 <template>
   <view>
-    <comm-navbar title="百万像素"  :autoBack="false"/>
+    <comm-navbar title="百万像素" :bgColor="'#ff8cad'" :title-color="'#fff'"  :is-top="true" :autoBack="false"/>
     <comm-empty/>
     <view
          class="query-box"
@@ -14,24 +14,37 @@
       </view>
     </view>
 
-    <view style="margin-top: 5px">
+    <view >
       <!-- 搜索结果列表-->
-      <view
-          v-for="(item,index) in list" :key="index"
-          @click.stop="skip(item)">
-        <van-card
-            :desc="subValue(item.intro,false)"
-
-        >
-          <view slot="thumb" >
-            <van-image width="75" height="75" :src="item.avatar2.url" />
-          </view>
-
-          <view slot="title" style="font-weight: bold;font-size: 0.8rem">
-            {{subValue(item.name,true)}}
-          </view>
-        </van-card>
+      <!-- 搜索结果列表-->
+      <view @click="skip(item)" v-for="(item,index) in list" :key="index"
+            style="display: flex; padding: 10px;
+             background: #fff;
+            ">
+        <view style="width: 65px;height: 65px;flex-shrink: 0;">
+          <image style="width: 100%;height:100%;border-radius: 5px" :src="item.avatar2.url"></image>
+        </view>
+        <view style="margin-left: 10px;">
+          <view style="font-weight: bold;margin-bottom: 5px;font-size: 0.9rem">{{subValue(item.name,true)}}</view>
+          <view style="color: #939292;font-size: 0.7rem">{{subValue(item.intro,false)}}</view>
+        </view>
       </view>
+<!--      <view-->
+<!--          style="margin-bottom: 5px"-->
+<!--          v-for="(item,index) in list" :key="index"-->
+<!--          @click.stop="skip(item)">-->
+<!--        <van-card-->
+<!--            :desc="subValue(item.intro,false)"-->
+<!--        >-->
+<!--          <view slot="thumb" >-->
+<!--            <van-image width="75" height="75" :src="item.avatar2.url" />-->
+<!--          </view>-->
+
+<!--          <view slot="title" style="font-weight: bold;font-size: 0.8rem">-->
+<!--            {{subValue(item.name,true)}}-->
+<!--          </view>-->
+<!--        </van-card>-->
+<!--      </view>-->
 
     </view>
     <!-- 选择城市-->
@@ -159,8 +172,8 @@ export default {
           return v.substring(0,16)+'...'
         }
       }else {
-        if (v.length> 40){
-          return v.substring(0,40)+'...'
+        if (v.length> 50){
+          return v.substring(0,50)+'...'
         }
       }
       return v
@@ -171,7 +184,10 @@ export default {
 
 <style>
 .query-box{
-  display: flex;align-items: center;justify-content: space-between;background: #faa1c7;padding:0px 10px;
+  display: flex;align-items: center;
+  justify-content: space-between;
+  background: #ff8cad; // #faa1c7
+  padding:0px 10px;
 }
 page{
   //background-color: #fff;

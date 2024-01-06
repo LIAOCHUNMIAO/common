@@ -164,10 +164,10 @@
         }
     ],
 	"globalStyle": {
-		"navigationBarTextStyle": "white",
-		"navigationBarTitleText": "百万像素",
-		"navigationBarBackgroundColor": "#faa1c7",
-		"backgroundColor": "#F8F8F8",
+//		"navigationBarTextStyle": "black",
+//		"navigationBarTitleText": "百万像素",
+//		"navigationBarBackgroundColor": "#faa1c7",
+//		"backgroundColor": "#F8F8F8",
 		"usingComponents": {
 			"van-button": "wxcomponents/@vant/vant-weapp/button/index",
 			"van-grid": "wxcomponents/@vant/vant-weapp/grid/index",

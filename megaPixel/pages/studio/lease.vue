@@ -84,16 +84,24 @@
             icon: 'icon-lease',
             page: '/pages/studio/lease'
           },
-          {
-            text: '会员',
-            name: 'studioVip',
-            icon: 'icon-vip',
-            page: '/pages/studio/vip'
-          },
+          // {
+          //   text: '会员',
+          //   name: 'studioVip',
+          //   icon: 'icon-vip',
+          //   page: '/pages/studio/vip'
+          // },
         ],
 			}
 		},
     onLoad(e) {
+      wx.setNavigationBarColor({
+        frontColor: '#000000',
+        backgroundColor: '#f8f8f8',
+        animation: {
+          duration: 400,
+          timingFunc: 'easeIn'
+        }
+      })
       const data =  JSON.parse(e.data)
       this.studioId = data.studioId
       this.title = data.title
