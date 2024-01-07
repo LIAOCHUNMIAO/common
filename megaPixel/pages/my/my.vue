@@ -33,7 +33,7 @@
     <!-- 底部菜单栏-->
     <u-tabbar z-index="888" :value="currentTab" @change="changeTab()"
               :fixed="true" :placeholder="true" :safeAreaInsetBottom="true"
-              activeColor="#faa1c7"
+              activeColor="#ff8cad"
               inactiveColor="#8f8f8f"
     >
       <u-tabbar-item :name="item.name" :text="item.text" v-for="(item,index) in tabList" :key="index">

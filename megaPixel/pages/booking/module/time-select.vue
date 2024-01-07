@@ -76,7 +76,7 @@ export default {
         /*#endif*/
 
         /*#ifdef MP-WEIXIN*/
-        reStyle = {"background": "#faa1c7"}
+        reStyle = {"background": "#ff8cad"}
         /*#endif*/
 
 

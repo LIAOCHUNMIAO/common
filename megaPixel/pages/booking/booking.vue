@@ -14,7 +14,7 @@
 			<view class="day-card">
         <view class="day-item"  v-for="(item,index) in weeks" :key="index"
               @click="dayCard(item)"
-              :style="{'background': item.isDidst ? '#d0d0d0': item.highLight ? '#faa1c7':'#fce3eb'  }">
+              :style="{'background': item.isDidst ? '#d0d0d0': item.highLight ? '#ff8cad':'#fce3eb'  }">
           <view :style="{
             'marginBottom': '10px',
             'fontWeight': 'bold',
@@ -34,7 +34,7 @@
         <van-col span="12">
 
           <view style="display: flex;align-items: center;">
-              <view style="height: 20px;width: 20px;background-color: #faa1c7;border-radius: 4px;margin-right: 5px"></view>
+              <view style="height: 20px;width: 20px;background-color: #ff8cad;border-radius: 4px;margin-right: 5px"></view>
               <view>当前选择的时间</view>
           </view>
         </van-col>
@@ -65,8 +65,8 @@
 
       <view style="position: fixed;bottom: 0;width: 100%">
         <view style="display: flex;align-items: center;height: 45px">
-          <view style="flex-grow: 1;background: #faa1c7;height: 100%;" class="flex-center" @click="yy">
-            <van-button  color="#faa1c7" type="primary" block>预 约</van-button>
+          <view style="flex-grow: 1;background: #ff8cad;height: 100%;" class="flex-center" @click="yy">
+            <van-button  color="#ff8cad" type="primary" block>预 约</van-button>
 <!--            <text  style="font-size: 17px;color: #fff;font-weight: bold">预 约</text>-->
           </view>
 

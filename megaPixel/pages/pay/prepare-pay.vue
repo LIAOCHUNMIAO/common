@@ -112,9 +112,9 @@
     </view>
     </view>
     <view style="position: fixed;bottom: 0;width: 100%;">
-      <view style="display: flex;align-items: center;height: 45px">
-        <van-button style="flex-grow:1" color="#faa1c7" type="primary" block  @click="goBack">返 回</van-button>
-        <van-button style="flex-grow:1" color="#faa1c7" type="primary" block  @click="next">下一步</van-button>
+      <view style="display: flex;align-items: center;height: 45px;background: #ff8cad">
+        <van-button style="flex-grow:1" color="#ff8cad" type="primary" block  @click="goBack">返 回</van-button>
+        <van-button style="flex-grow:1" color="#ff8cad" type="primary" block  @click="next">下一步</van-button>
 <!--        <view style="flex-grow: 1;background: #faa1c7;height: 100%;" class="flex-center" @click="goBack">-->
 <!--          <text  style="font-size: 17px;color: #fff;font-weight: bold">返 回</text>-->
 <!--        </view>-->

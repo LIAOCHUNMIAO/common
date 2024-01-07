@@ -94,7 +94,7 @@
       </view>
     </view>
     <!-- 底部菜单栏-->
-    <u-tabbar z-index="888" activeColor="#faa1c7" :value="currentTab" @change="changeTab()" :fixed="true"
+    <u-tabbar z-index="888" activeColor="#ff8cad" :value="currentTab" @change="changeTab()" :fixed="true"
               :placeholder="true" :safeAreaInsetBottom="true">
       <u-tabbar-item :name="item.name" :text="item.text" v-for="(item,index) in tabList" :key="index">
         <view slot="active-icon" style="font-size: 18px" :class="['mega-pixel-icon','my-topic-color',item.icon]"></view>

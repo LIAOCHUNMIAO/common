@@ -52,11 +52,11 @@
       <view style="height: 350px;">
         <view style="display: flex;align-items:center; justify-content: space-between;margin: 5px 8px">
           <view  style="width: 25px;height:25px;"></view>
-          <view  style="font-weight: bold">城市</view>
+          <view  style="font-weight: bold">省或直辖市</view>
           <view @click="closeCity" style="font-size: 25px;padding-top: 2px;color: #8f8f8f" class="mega-pixel-icon icon-close"></view>
         </view>
 
-        <view  style="margin: 0px 5px;height: 100%;overflow-y: scroll">
+        <view  style="margin: 0px 5px;height: 100%;overflow-y: scroll;padding-bottom: 35px">
           <view v-for="(item,index) in cityList" :key="index" class="flex-center"
                 style="border-bottom: 1rpx solid #ececec;width: 100%;" @click="selectCity(item)">
             <view style="font-size: 16px;margin: 10px;">{{item.short_name}}</view>

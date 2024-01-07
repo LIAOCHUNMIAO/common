@@ -19,9 +19,7 @@
             <van-button  size="small" style="z-index: 55" color="#ff8cad" type="primary" @click="goReservation">
               预 约
             </van-button>
-<!--            <view class="my-submit-button" style="font-weight: bold;" @click="goReservation">-->
-<!--              -->
-<!--            </view>-->
+
           </view>
         </view>
         <view >
@@ -49,7 +47,11 @@
           <image style="width: 100%;" mode="widthFix" :src="item.sceneryPhoto.url" @click="previewImg(item)"/>
           <view style="display: flex;justify-content: space-between;padding: 5px 15px">
             <view >
-              <view class="def-font-size" style="color: #646566">{{ item.detail }}</view>
+              <view class="def-font-size" style="color: #646566">
+                <text v-if="item.detail !== null && item.detail !== ''">
+                {{ item.detail }}
+                </text>
+              </view>
             </view>
           </view>
         </view>

@@ -32,18 +32,18 @@
                 clearable
                 placeholder="请选择性别"
             >
-              <van-button color="#faa1c7" slot="button" size="small" type="primary" @click="genderShow = true">
+              <van-button color="#ff8cad" slot="button" size="small" type="primary" @click="genderShow = true">
                 选择性别
               </van-button>
             </van-field>
 
             <van-field
-                :value="from.gender"
+                :value="from.province"
                 label="地区"
                 clearable
                 placeholder="请选择地区"
             >
-              <van-button color="#faa1c7" slot="button" size="small" type="primary" @click="cityShow = true">
+              <van-button color="#ff8cad" slot="button" size="small" type="primary" @click="cityShow = true">
                 选择地区
               </van-button>
             </van-field>
@@ -52,7 +52,7 @@
         </view>
         <view style="position: fixed;bottom: 0;width: 100%">
           <view style="display: flex;align-items: center;height: 45px">
-            <van-button style="flex-grow:1" color="#faa1c7" type="primary" block  formType="submit">提 交</van-button>
+            <van-button style="flex-grow:1" color="#ff8cad" type="primary" block  formType="submit">提 交</van-button>
 <!--            <button style="flex-grow: 1;background: #faa1c7;height: 100%;font-size: 17px;color: #fff;font-weight: bold"-->
 <!--            formType="submit">提 交</button>-->
           </view>
@@ -64,12 +64,12 @@
       <view style="height: 350px;">
         <view style="display: flex;align-items:center; justify-content: space-between;margin: 5px 8px">
           <view style="width: 25px;height:25px;"></view>
-          <view style="font-weight: bold">城市</view>
+          <view style="font-weight: bold">省或直辖市</view>
           <view @click="closeCity" style="font-size: 25px;padding-top: 2px;color: #8f8f8f"
                 class="mega-pixel-icon icon-close"></view>
         </view>
 
-        <view style="margin: 0px 5px;height: 100%;overflow-y: scroll">
+        <view style="margin: 0px 5px;height: 100%;overflow-y: scroll;padding-bottom: 35px">
           <view v-for="(item,index) in cityList" :key="index" class="flex-center"
                 style="border-bottom: 1rpx solid #ececec;width: 100%;" @click="selectCity(item)">
             <view style="font-size: 16px;margin: 10px;">{{ item.short_name }}</view>
