@@ -86,6 +86,14 @@
       }
 		},
     onLoad: function (e) {
+      wx.setNavigationBarColor({
+        frontColor: '#000000',
+        backgroundColor: '#f8f8f8',
+        animation: {
+          duration: 400,
+          timingFunc: 'easeIn'
+        }
+      })
       if (this.$utils.isNotNull(e)) {
 
         getCurrentPages().forEach((item, index) => {

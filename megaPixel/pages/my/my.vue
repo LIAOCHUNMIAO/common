@@ -20,8 +20,8 @@
 		<view style="margin: 10px 5px; background-color: white;border-radius: 10px;
 		box-shadow: 0 0 5px #d0d0d0;padding: 13px 13px 5px 15px;">
       <!-- 菜单列表 -->
-			<view style="display: flex;margin-bottom :13px;align-items: center" v-for="(item,index) in list" :key="index">
-				<view >
+			<view style="display: flex;margin-bottom :13px;align-items: center" v-for="(item,index) in list" :key="index" >
+				<view @click="skip(item)">
           <view style="font-size: 28px;padding-top: 2px;" :class="['mega-pixel-icon',' my-topic-color',item.icon]"></view>
 				</view>
 				<view  style="margin-left: 10px;font-size: 1.2rem;" @click="skip(item)">

@@ -88,11 +88,12 @@ const user = {
               gender = item.name
             }
           })
+          let avatarUrl  = (avatar !== null && avatar.url !== null)? avatar.url :''
 
           commit('SET_NAME', name)
           commit('SET_PROVINCE', province)
           commit('SET_PHONE', phone)
-          commit('SET_AVATAR', avatar)
+          commit('SET_AVATAR', avatarUrl)
           commit('SET_GENDER', gender)
           let has = false
           if (phone !== null && phone!== ""&& phone!== undefined){

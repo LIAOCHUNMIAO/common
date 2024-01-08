@@ -57,6 +57,14 @@ import MTabbarNavbar from "../../components/m-tabbar-navbar/m-tabbar-navbar.vue"
 			}
 		},
     onLoad() {
+      wx.setNavigationBarColor({
+        frontColor: '#000000',
+        backgroundColor: '#f8f8f8',
+        animation: {
+          duration: 400,
+          timingFunc: 'easeIn'
+        }
+      })
       this.init()
     },
 		methods: {

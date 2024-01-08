@@ -43,12 +43,17 @@
       </view>
       <view v-show="curNow === 1" style="padding: 5px 30px;z-index: 4;">
         <view v-for="(item,index) in sample" :key="index"
-              style="background: #fff;border-radius: 0px 0px 5px 5px;margin-bottom: 15px;padding-bottom: 3px">
+              :style="{marginBottom: '15px',background: (item.detail !== null && item.detail !== '')?'#fff':''} ">
           <image style="width: 100%;" mode="widthFix" :src="item.sceneryPhoto.url" @click="previewImg(item)"/>
-          <view style="display: flex;justify-content: space-between;padding: 5px 15px">
+          <view v-if="item.detail !== null && item.detail !== ''"
+                style="display: flex;justify-content: space-between;
+                padding: 0px 15px;
+
+
+            ">
             <view >
-              <view class="def-font-size" style="color: #646566">
-                <text v-if="item.detail !== null && item.detail !== ''">
+              <view class="def-font-size" style="color: #646566;padding-bottom: 3px">
+                <text >
                 {{ item.detail }}
                 </text>
               </view>
