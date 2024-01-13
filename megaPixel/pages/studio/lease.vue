@@ -93,7 +93,27 @@
         ],
 			}
 		},
+    onShareAppMessage() {
+      const data = {
+        studioId: this.studioId,
+        title: this.title,
+        paymentQr: this.paymentQr,
+        phone: this.phone,
+        wechatId: this.wechatId,
+        wechatQr: this.wechatQr
+      }
+      return {
+        title: this.title,
+        path: '/pages/studio/lease?data='+JSON.stringify(data),
+        // imageUrl: this.coverList[0].url
+      }
+    },
     onLoad(e) {
+      uni.showShareMenu({
+        withShareTicket: true,
+        //设置下方的Menus菜单，才能够让发送给朋友与分享到朋友圈两个按钮可以点击
+        menus: ["shareAppMessage", "shareTimeline"]
+      })
       wx.setNavigationBarColor({
         frontColor: '#000000',
         backgroundColor: '#f8f8f8',

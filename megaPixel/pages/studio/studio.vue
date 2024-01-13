@@ -152,6 +152,11 @@ export default {
     }
   },
   onLoad(e) {
+    uni.showShareMenu({
+      withShareTicket: true,
+      //设置下方的Menus菜单，才能够让发送给朋友与分享到朋友圈两个按钮可以点击
+      menus: ["shareAppMessage", "shareTimeline"]
+    })
     wx.setNavigationBarColor({
       frontColor: '#000000',
       backgroundColor: '#f8f8f8',
@@ -175,8 +180,8 @@ export default {
 
     return {
       title: this.studioInfo.studio.name,
-      path: '/pages/studio/studio?data='+JSON.stringify(data),
-      imageUrl: this.coverList[0].url
+      path: '/pages/studio/studio?data='+JSON.stringify(data)
+      // imageUrl: this.coverList[0].url
     }
   },
 
@@ -198,7 +203,7 @@ export default {
         // this.paymentQr = this.studioInfo.studio.paymentQr2.url
         this.phone = this.studioInfo.studio.phone
         this.wechatId = this.studioInfo.studio.wechatId
-        this.wechatQr = this.studioInfo.studio.wechatQr2.url
+        this.wechatQr = '' // this.studioInfo.studio.wechatQr2.url
 
         const p = {
           studioWechatId: this.studioInfo.studio.wechatId,

@@ -16,12 +16,13 @@ let storageNodeKeys = [
     constant.studioWechatId,
     constant.studioPhone,
     constant.studioName,
-    constant.studioId
+    constant.studioId,
+    constant.avatarInfo
 ]
 
 const storage = {
     set: function (key, value) {
-        if (storageNodeKeys.indexOf(key) != -1) {
+        if (storageNodeKeys.indexOf(key) !== -1) {
             let tmp = uni.getStorageSync(storageKey)
             tmp = tmp ? tmp : {}
             tmp[key] = value

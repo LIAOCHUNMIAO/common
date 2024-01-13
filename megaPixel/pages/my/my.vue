@@ -7,28 +7,62 @@
       <u-avatar size="55" :src="userInfo.avatarUrl"></u-avatar>
       <!-- 昵称 -->
 			<view style="margin-left: 10px;color: white;font-size: 1.2rem;font-weight: bold">{{userInfo.nickName}}</view>
-      <!-- 编辑 -->
-<!--			<view style="margin-left: 20px;display: flex;" @click="editUser()">-->
-<!--				<view >-->
-<!--          <view style="font-size: 16px;padding-top: 2px;color: #8f8f8f" class="mega-pixel-icon icon-pen"></view>-->
-<!--        </view>-->
-<!--				<view>-->
-<!--					修改-->
-<!--				</view>-->
-<!--			</view>-->
+
 		</view>
 		<view style="margin: 10px 5px; background-color: white;border-radius: 10px;
 		box-shadow: 0 0 5px #d0d0d0;padding: 13px 13px 5px 15px;">
       <!-- 菜单列表 -->
-			<view style="display: flex;margin-bottom :13px;align-items: center" v-for="(item,index) in list" :key="index" >
-				<view @click="skip(item)">
-          <view style="font-size: 28px;padding-top: 2px;" :class="['mega-pixel-icon',' my-topic-color',item.icon]"></view>
-				</view>
-				<view  style="margin-left: 10px;font-size: 1.2rem;" @click="skip(item)">
-					{{item.name}}
-				</view>
-			</view>
-			
+      <view v-if="hasAuth">
+        <view  v-for="(item,index) in list" :key="index" >
+          <button
+              @click="skip(item)"
+              class="auth-button"
+              style="
+                padding: 0 !important;
+                margin: 0 !important;
+                height: 43px;
+                display: flex;
+                align-items: center;
+                background-color: transparent;
+"
+              >
+            <view >
+              <view style="font-size: 28px;" :class="['mega-pixel-icon',' my-topic-color',item.icon]"></view>
+            </view>
+            <view  style="margin-left: 10px;font-size: 1.2rem;" >
+              {{item.name}}
+            </view>
+          </button>
+        </view>
+
+      </view>
+      <view v-else>
+        <view  v-for="(item,index) in list" :key="index" >
+          <button
+              class="auth-button"
+              style="
+                padding: 0 !important;
+                margin: 0 !important;
+                height: 43px;
+                display: flex;
+                align-items: center;
+                background-color: transparent;
+"
+              open-type='getPhoneNumber'  @getphonenumber="getPhoneNumber($event,item)">
+          <view>
+            <view style="font-size: 28px;" :class="['mega-pixel-icon',' my-topic-color',item.icon]"></view>
+          </view>
+          <view  style="margin-left: 10px;font-size: 1.2rem;" >
+            {{item.name}}
+          </view>
+          </button>
+        </view>
+
+      </view>
+
+
+
+
 		</view>
     <!-- 底部菜单栏-->
     <u-tabbar z-index="888" :value="currentTab" @change="changeTab()"
@@ -45,8 +79,10 @@
 </template>
 
 <script>
-
-
+import {getPhone} from '@/api/index'
+import constant from '@/utils/constant'
+import {getWechatAuth, getWechatUserInfo} from "@/utils/userAuth";
+import storage from '@/utils/storage'
   export default {
 		data() {
 			return {
@@ -95,13 +131,78 @@
           nickName: '微信用户',
           avatarUrl: '',
           gender: 0 //性别 0：未知、1：男、2：女
-        }
+        },
+        hasAuth: false,
+        phone: ''
 			}
 		},
     created() {
+
+    },
+    onShow(){
+      this.init()
+    },
+    onLoad(e) {
+      this.hasAuth = uni.getStorageSync("hasAuth")
       this.init()
     },
 		methods: {
+
+      getPhoneNumber(e,item) {
+
+        const code = e.detail.code
+        getPhone({code: code}).then(res => {
+          const r = res.data
+          if (r.errmsg === 'ok') {
+
+            this.phone = r.phone_info['phoneNumber']
+            uni.setStorageSync(constant.userPhone, this.phone)
+            this.auth(true,item)
+          } else {
+            // this.$modal.msg("授权失败，请稍后再试")
+          }
+        }).catch(err => {
+          this.tips = '授权失败，请稍联系管理员'
+          this.$modal.msg("授权失败，请稍联系管理员")
+        })
+      },
+      auth(isGo,row) {
+
+        const _this_ = this
+        getWechatAuth().then(authRes => {
+          getWechatUserInfo().then(infoRes => {
+            wx.login({
+              success(res) {
+                if (res.code) {
+                  const param = {
+                    code: res.code,
+                    phone: _this_.phone
+                  }
+                  _this_.$store.dispatch('AutoLogin', param).then(rs => {
+                    if (rs) {
+                      _this_.$store.dispatch('GetInfo')
+                      uni.setStorageSync("start", false)
+                      uni.setStorageSync("hasAuth", true)
+                      _this_.hasAuth = true
+
+                      if (isGo){
+                        _this_.skip(row)
+                      }
+                      // _this_.init()
+                    }
+                    // else {
+                    //   console.log('登录失败！' + res.errMsg)
+                    // }
+                  })
+                } else {
+                  console.log('登录失败！' + res.errMsg)
+                }
+              }
+            })
+          })
+        })
+      },
+
 
       changeTab(e) {
         if (e === this.currentTab) return
@@ -117,22 +218,8 @@
 
       init(){
         /*#ifdef MP-WEIXIN*/
-        this.userInfo.nickName = this.$store.getters.name
-        this.userInfo.avatarUrl = this.$store.getters.avatar
-
-        // wx.getUserInfo({
-        //   success: function(res) {
-        //     console.log(res.userInfo)
-        //     this.userInfo = res.userInfo
-        //     // var userInfo = res.userInfo
-        //     // var nickName = userInfo.nickName
-        //     // var avatarUrl = userInfo.avatarUrl
-        //     // var gender = userInfo.gender //性别 0：未知、1：男、2：女
-        //     // var province = userInfo.province
-        //     // var city = userInfo.city
-        //     // var country = userInfo.country
-        //   }
-        // })
+        this.userInfo.nickName = storage.get(constant.name)
+        this.userInfo.avatarUrl = storage.get(constant.avatar)
         /*#endif*/
       },
 			change(e) {},

@@ -8,12 +8,6 @@
         <view style="padding: 20px;background: #fff">
           <view class="flex-center" style="flex-direction: column">
             <button class="avatar-style" open-type='chooseAvatar' @chooseavatar="getIcon">
-<!--              <van-image-->
-<!--                  round-->
-<!--                  width="10rem"-->
-<!--                  height="10rem"-->
-<!--                  :src="avatarUrl"-->
-<!--              />-->
               <image style="width: 100%;height: 100%;" :src="avatarUrl"/>
             </button>
             <view>头像</view>
@@ -23,12 +17,16 @@
             <van-field
                 :value="from.name"
                 label="姓名"
+                id="userNameInput"
+                @blur="userNameInput"
+                type="nickname"
                 clearable
                 placeholder="请输入姓名"
             />
             <van-field
                 :value="from.gender"
                 label="性别"
+                disabled
                 clearable
                 placeholder="请选择性别"
             >
@@ -40,6 +38,7 @@
             <van-field
                 :value="from.province"
                 label="地区"
+                disabled
                 clearable
                 placeholder="请选择地区"
             >
@@ -53,8 +52,6 @@
         <view style="position: fixed;bottom: 0;width: 100%">
           <view style="display: flex;align-items: center;height: 45px">
             <van-button style="flex-grow:1" color="#ff8cad" type="primary" block  formType="submit">提 交</van-button>
-<!--            <button style="flex-grow: 1;background: #faa1c7;height: 100%;font-size: 17px;color: #fff;font-weight: bold"-->
-<!--            formType="submit">提 交</button>-->
           </view>
         </view>
       </form>
@@ -103,11 +100,13 @@
 <script>
 import {citys} from "../../searchPage/city";
 import myConstant from "@/utils/myConstant";
+
 import {updateInfo, uploadUrl} from "@/api/index";
 import {newDateTime} from "@/utils/dateUtils";
 import {getToken} from "@/utils/auth";
 import CommNavbar from "../../../components/comm-navbar/comm-navbar.vue";
-
+import storage from '@/utils/storage'
+import constant from '@/utils/constant'
 export default {
   components: {CommNavbar},
   data() {
@@ -118,8 +117,8 @@ export default {
       },
       from: {
         startTime: newDateTime(),
-        gender: "未知",
-        province: "上海",
+        gender: '',
+        province: '',
         avatar: null,
         name: null
       },
@@ -127,32 +126,42 @@ export default {
       cityList: citys,
       genderShow: false,
       genderList: myConstant.genderType,
-      avatarUrl: ''
+      avatarUrl: '',
+      avatarInfo: null
     }
   },
   created() {
-    this.avatarUrl = this.$store.getters.avatar
-    this.from.name = this.$store.getters.name
-    this.province = this.$store.getters.province
+    this.avatarUrl = storage.get(constant.avatar)
+    this.from.name = storage.get(constant.name)
+    this.from.province = storage.get(constant.province)
+    this.avatarInfo = storage.get(constant.avatarInfo)
+    console.log('------------------------------')
+    console.log(this.avatarInfo)
+    console.log('------------------------------')
+
+    const sex =  storage.get(constant.gender)
 
     this.genderList.forEach(i => {
-      if (this.$store.getters.gender === i.id || this.$store.getters.gender === i.name) {
+      if (sex === i.id || sex === i.name) {
         this.from.gender = i.name
       }
     })
   },
   methods: {
     userNameInput(e){
-
       this.from.name = e.detail.value
     },
     formSubmit(e) {
 
-      console.log(this.from)
+      //
+      if (this.from.avatar === null){
+        this.from.avatar = this.avatarInfo
+      }
       this.$modal.msgSuccess("提交成功！")
       updateInfo(this.from).then(res => {
-        this.$store.dispatch('GetInfo')
-        this.$tab.navigateBack()
+        this.$store.dispatch('GetInfo').then(res=>{
+          this.$tab.navigateBack()
+        })
       })
     },
     getIcon(e) {
@@ -200,6 +209,14 @@ export default {
 page {
   background-color: white;
 }
+/deep/.van-field__label--disabled {
+  color: #646566 !important;
+}
+/deep/.van-field__control--disabled {
+  color: #646566 !important;
+}
+
+
 
 .avatar-style {
   border: 0px solid #fff;

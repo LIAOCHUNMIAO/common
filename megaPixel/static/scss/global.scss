@@ -160,6 +160,13 @@
   letter-spacing: 0.1rem;
   font-size: .8rem;
 }
+
+.auth-button::after{
+  border: none;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 body{
   font-family: "Microsoft YaHei UI";
   //font-family: url('./static/font/AlimamaDaoLiTi.ttf');

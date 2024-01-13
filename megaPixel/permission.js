@@ -19,24 +19,25 @@ let list = ["navigateTo", "redirectTo", "reLaunch", "switchTab"]
 list.forEach(item => {
     uni.addInterceptor(item, {
         invoke(to) {
-            console.log('shg')
-            console.log(to)
-            if (whiteList.includes(to.url)) {
-                console.log('首页')
-                return true
-            } else {
-                console.log('!首页')
-                if (getToken()) {
-                    console.log('token')
-                    return true
-                } else {
-                    uni.setStorageSync(constant.userPhone,'')
-                    removeToken()
-                    this.$modal.msg("登录信息过期，请重新登录")
-                    return false
-                }
-
-            }
+            return true
+            // console.log('shg')
+            // console.log(to)
+            // if (whiteList.includes(to.url)) {
+            //     console.log('首页')
+            //     return true
+            // } else {
+            //     console.log('!首页')
+            //     if (getToken()) {
+            //         console.log('token')
+            //         return true
+            //     } else {
+            //         uni.setStorageSync(constant.userPhone,'')
+            //         removeToken()
+            //         this.$modal.msg("登录信息过期，请重新登录")
+            //         return false
+            //     }
+            //
+            // }
 
             // if (getToken()) {
             //   if (to.url === loginPage) {

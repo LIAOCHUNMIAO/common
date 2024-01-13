@@ -8,6 +8,7 @@ const constant = {
     phone: 'vuex_phone',
     hasPhone: 'vuex_hasPhone',
     gender: 'vuex_gender',
+    avatarInfo: 'vuex_avatar_info',
 
     studioWechatId: 'studio_wechat_id',
     studioPhone: 'studio_phone',

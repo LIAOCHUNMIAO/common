@@ -12,14 +12,13 @@
 			<u-notice-bar bgColor='#ffffff' icon="bell" color='#faa1c7' :text="noticeValue"></u-notice-bar>
 		</view>
     <!-- 商品分类 -->
-		<view class="cate-gory">
-
+      <view class="cate-gory">
       <van-grid gutter="20" column-num="3" icon-size="40">
         <van-grid-item
-                       v-for="(item,index) in cateGory" :key="index"
-                       :icon="item.img"
-                       @click="goSearch(item)"
-                       :style="{
+            v-for="(item,index) in cateGory" :key="index"
+            :icon="item.img"
+            @click="goSearch(item)"
+            :style="{
                       filter:item.start? '': 'grayscale(100%)'
         			        }"
         >
@@ -28,21 +27,72 @@
           </view>
         </van-grid-item>
       </van-grid>
-
-<!--			<view class="cate-gory-item" v-for="(item,index) in cateGory" :key="index" @click="goSearch(item)"-->
-<!--            :style="{-->
+      </view>
+<!--      <view  class="cate-gory" >-->
+<!--        <view class="cate-gory-item" v-for="(item,index) in cateGory" :key="index" @click="goSearch(item)"-->
+<!--              :style="{-->
 <!--              filter:item.start? '': 'grayscale(100%)'-->
 <!--			      }">-->
-<!--				<view style="width: 50px;height: 50px;padding: 5px;">-->
-<!--					<img style="width: 100%;height: 100%;border-radius: 8px;" :src="item.img" alt="">-->
-<!--				</view>-->
+<!--          <button-->
+<!--              class="auth-button"-->
+<!--              style="-->
+<!--              width: 100%;-->
+<!--                height: 100%;-->
+<!--                display: flex;-->
+<!--                flex-direction: column;-->
+<!--                align-items: center;-->
+<!--                justify-content: center;-->
+<!--                padding: 5px;-->
+<!--                background-color: transparent;-->
+<!--">-->
 
-<!--				<view class="def-font-size" style="margin-top: 10px;">-->
-<!--					{{item.name}}-->
-<!--				</view>-->
-<!--			</view>-->
+<!--          <view style="width: 50px;height: 50px;padding: 5px;">-->
+<!--            <image style="width: 100%;height: 100%;border-radius: 8px;" :src="item.img" alt=""/>-->
+<!--          </view>-->
 
-		</view>
+<!--          <view style="padding: 5px 0px;font-weight: bold;font-size: 15px;color: #505050">-->
+<!--            {{item.name}}-->
+<!--          </view>-->
+<!--          </button>-->
+<!--        </view>-->
+<!--      </view>-->
+
+
+<!--      <view  class="cate-gory">-->
+<!--&lt;!&ndash;        @click="goSearch(item)"&ndash;&gt;-->
+<!--        <view class="cate-gory-item" v-for="(item,index) in cateGory" :key="index"-->
+<!--              :style="{-->
+<!--              filter:item.start? '': 'grayscale(100%)'-->
+<!--			      }">-->
+<!--          <button-->
+<!--              class="auth-button"-->
+<!--              style="-->
+<!--              width: 100%;-->
+<!--                height: 100%;-->
+<!--                display: flex;-->
+<!--                flex-direction: column;-->
+<!--                align-items: center;-->
+<!--                justify-content: center;-->
+<!--                padding: 5px;-->
+<!--                background-color: transparent;-->
+<!--"-->
+<!--        open-type='getPhoneNumber'  @getphonenumber="getPhoneNumber($event,item)">-->
+
+<!--          <view style="width: 50px;height: 50px;padding: 5px;">-->
+<!--            <image style="width: 100%;height: 100%;border-radius: 8px;" :src="item.img" alt=""/>-->
+<!--          </view>-->
+
+<!--          <view style="padding-top: 5px;font-weight: bold;font-size: 15px;color: #505050">-->
+<!--            {{item.name}}-->
+<!--          </view>-->
+<!--          </button>-->
+
+<!--        </view>-->
+<!--      </view>-->
+
+
+
+
     </view>
     <!-- 底部菜单栏-->
     <u-tabbar z-index="888" :value="currentTab" @change="changeTab()"
@@ -58,28 +108,28 @@
 
 
 
-    <u-overlay :show="show" @click="clickOverlay">
+<!--    <u-overlay :show="show" @click="clickOverlay">-->
 
-      <view style="width: 100vw;height: 100%" class="flex-center">
-          <view
-              v-if="!hasPhone"
-              style="width: 70vw;
-          display: flex;
-          align-items: end;
-          flex-direction: column;
-          background: #ffffff;height: 22vh;border-radius: 10px;overflow: hidden">
-            <view  style="width: 100%;height: 70px;border-bottom: 1px solid #eee" class="flex-center">
-              <text style="color: #ff6565;font-size: 16px;font-weight: bold">提示</text>
-            </view>
-            <view class="flex-center" style="width: 100%;height: 100%">
-              <text style="color: #69afff;font-size: 17px;font-weight: bold">{{tips}}</text>
-            </view>
-            <view style="width: 100%;">
-              <u-button :disabled="loginBtn"  open-type="getPhoneNumber" @getphonenumber="getPhoneNumber" type="primary">登录</u-button>
-            </view>
-          </view>
-      </view>
-    </u-overlay>
+<!--      <view style="width: 100vw;height: 100%" class="flex-center">-->
+<!--          <view-->
+<!--              v-if="!hasPhone"-->
+<!--              style="width: 70vw;-->
+<!--          display: flex;-->
+<!--          align-items: end;-->
+<!--          flex-direction: column;-->
+<!--          background: #ffffff;height: 22vh;border-radius: 10px;overflow: hidden">-->
+<!--            <view  style="width: 100%;height: 70px;border-bottom: 1px solid #eee" class="flex-center">-->
+<!--              <text style="color: #ff6565;font-size: 16px;font-weight: bold">提示</text>-->
+<!--            </view>-->
+<!--            <view class="flex-center" style="width: 100%;height: 100%">-->
+<!--              <text style="color: #69afff;font-size: 17px;font-weight: bold">{{tips}}</text>-->
+<!--            </view>-->
+<!--            <view style="width: 100%;">-->
+<!--              <u-button :disabled="loginBtn"  open-type="getPhoneNumber" @getphonenumber="getPhoneNumber" type="primary">登录</u-button>-->
+<!--            </view>-->
+<!--          </view>-->
+<!--      </view>-->
+<!--    </u-overlay>-->
 	</view>
 </template>
 
@@ -109,7 +159,8 @@ import constant from '@/utils/constant'
         notice:{ id: null, announcement: '', userNotice: '', createdTime: '' },
         noticeValue:'',
 				rotationPhoto: [],
-				cateGory: [{
+				cateGory: [
+            {
 						name: '摄影棚',
 						img: require('@/static/images/index/syp.png'),
 						page: '',
@@ -152,9 +203,10 @@ import constant from '@/utils/constant'
             start: false
 					}
 				],
-        hasPhone: true,
+        hasPhone: false,
         phone: '',
-        tips: '您还未授权登录'
+        tips: '您还未授权登录',
+        hasAuth: false
 			}
 		},
     // 分享功能
@@ -165,6 +217,10 @@ import constant from '@/utils/constant'
       }
     },
 		onLoad() {
+      // uni.setStorageSync("hasAuth", false)
+     this.hasAuth = uni.getStorageSync("hasAuth")
+      console.log(this.hasAuth)
+
       uni.showShareMenu({
         withShareTicket: true,
         //设置下方的Menus菜单，才能够让发送给朋友与分享到朋友圈两个按钮可以点击
@@ -172,12 +228,10 @@ import constant from '@/utils/constant'
       })
 
       let s = uni.getStorageSync("start")
-      console.log('index:'+s)
       if (s){
         this.doAuth()
-      }else {
-        this.init()
       }
+      this.init()
 		},
 		methods: {
       showImg(e) {
@@ -195,11 +249,12 @@ import constant from '@/utils/constant'
       doAuth(){
         this.phone = uni.getStorageSync(constant.userPhone)
         if (this.phone === null || this.phone === '' || this.phone === undefined) {
-          this.show = true
-          this.hasPhone = false
+          // this.show = true
+          // this.hasPhone = false
+          uni.setStorageSync("hasAuth", false)
         } else {
-          this.hasPhone = true
-          this.auth()
+          // this.hasPhone = true
+          this.auth(false,null)
 
         }
       },
@@ -217,7 +272,8 @@ import constant from '@/utils/constant'
         })
       },
 
-      getPhoneNumber(e) {
+      getPhoneNumber(e,item) {
+
         const code = e.detail.code
         getPhone({code: code}).then(res => {
           const r = res.data
@@ -225,9 +281,9 @@ import constant from '@/utils/constant'
             this.loginBtn = true
             this.phone = r.phone_info['phoneNumber']
             uni.setStorageSync(constant.userPhone, this.phone)
-            this.auth()
+            this.auth(true,item)
           } else {
-            this.$modal.msg("授权失败，请稍后再试")
+            // this.$modal.msg("授权失败，请稍后再试")
           }
         }).catch(err => {
           this.loginBtn = true
@@ -235,7 +291,7 @@ import constant from '@/utils/constant'
           this.$modal.msg("授权失败，请稍联系管理员")
         })
       },
-      auth() {
+      auth(isGo,row) {
 
         const _this_ = this
         getWechatAuth().then(authRes => {
@@ -256,7 +312,13 @@ import constant from '@/utils/constant'
                       _this_.show = false
                       _this_.$store.dispatch('GetInfo')
                       uni.setStorageSync("start", false)
-                      _this_.init()
+                      uni.setStorageSync("hasAuth", true)
+                      _this_.hasAuth = true
+
+                      if (isGo){
+                        _this_.goSearch(row)
+                      }
+                      // _this_.init()
                     }
                     // else {
                     //   console.log('登录失败！' + res.errMsg)
@@ -302,10 +364,10 @@ import constant from '@/utils/constant'
       // 跳转
       goSearch(item){
         // this.hasPhone()
-        if (!this.$store.getters.hasPhone){
-          this.$modal.msg("授权提示！")
-          return
-        }
+        // if (!this.$store.getters.hasPhone){
+        //   this.$modal.msg("授权提示！")
+        //   return
+        // }
         if (item.start){
           this.$tab.navigateTo('/pages/searchPage/searchPage?key='+item.key)
         }else {
@@ -316,33 +378,68 @@ import constant from '@/utils/constant'
 	}
 </script>
 
-<style>
+<style scoped>
+
 	page {
 		/* margin: 4px; */
 		/* padding: 5px; */
 	}
+  .customStyle{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+  }
+
   .grid-icon{
     width: 50px;
     height: 50px;
   }
 
-	.cate-gory {
-		//width: 100%;
-		margin-top: 20px;
-		//display: grid;
-		//grid-template-columns: auto auto auto;
-		//grid-gap: 30px;
-		//padding: 15px;
-	}
+  .cate-gory {
+    //width: 100%;
+    margin-top: 20px;
+    //display: grid;
+    //grid-template-columns: auto auto auto;
+    //grid-gap: 30px;
+    //padding: 15px;
+  }
 
-	.cate-gory>.cate-gory-item {
-		background: white;
-		border-radius: 10px;
-		text-align: center;
-		padding: 5px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
-	}
+  .cate-gory>.cate-gory-item {
+    background: white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  //.grid-icon{
+  //  width: 50px;
+  //  height: 50px;
+  //}
+  //
+	//.cate-gory {
+	//	//width: 100%;
+	//	margin-top: 20px;
+	//	display: grid;
+	//	grid-template-columns: auto auto auto;
+	//	grid-gap: 20px;
+	//	padding: 10px;
+	//}
+  //
+	////.cate-gory>
+  //.cate-gory-item {
+	//	background: white;
+	//	//border-radius: 10px;
+	//	text-align: center;
+	//	//padding: 5px;
+	//	display: flex;
+	//	justify-content: center;
+	//	align-items: center;
+	//	flex-direction: column;
+	//}
 </style>

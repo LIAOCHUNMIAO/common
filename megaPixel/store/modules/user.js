@@ -17,6 +17,8 @@ const user = {
     phone:storage.get(constant.phone),
     hasPhone:storage.get(constant.hasPhone),
     gender:storage.get(constant.gender),
+    avatarInfo:storage.get(constant.avatarInfo),
+
     // gender: "0"
     // growth: null
     // id: 8
@@ -56,11 +58,17 @@ const user = {
     },
     SET_HAS_PHONE: (state, hasPhone) => {
       state.hasPhone = hasPhone
+
       storage.set(constant.hasPhone, hasPhone)
     },
     SET_GENDER: (state, gender) => {
       state.gender = gender
       storage.set(constant.gender, gender)
+    },
+
+    SET_AVATAR_INFO: (state, avatarInfo) => {
+      state.avatarInfo = avatarInfo
+      storage.set(constant.avatarInfo, avatarInfo)
     },
 
   },
@@ -88,7 +96,11 @@ const user = {
               gender = item.name
             }
           })
-          let avatarUrl  = (avatar !== null && avatar.url !== null)? avatar.url :''
+          let avatarUrl = ''
+          if (avatar !== undefined && avatar !== null){
+            commit('SET_AVATAR_INFO', avatar)
+            avatarUrl = avatar.url
+          }
 
           commit('SET_NAME', name)
           commit('SET_PROVINCE', province)

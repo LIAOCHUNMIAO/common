@@ -73,6 +73,8 @@ import {citys} from "./city";
 import {allStudio} from '@/api/index'
 import {allStudioByParam} from "../../api/index";
 import CommNavbar from "../../components/comm-navbar/comm-navbar.vue";
+import storage from '@/utils/storage'
+import constant from '@/utils/constant'
 export default {
   components: {CommNavbar},
   computed: {
@@ -97,10 +99,11 @@ export default {
     }
   },
   onLoad(e) {
-    if (this.$store.getters.province !== null
-        && this.$store.getters.province !== undefined
-        && this.$store.getters.province !== ''){
-      this.queryParams.province = this.$store.getters.province
+   const addr =  storage.get(constant.province)
+    if (addr !== null
+        && addr !== undefined
+        && addr !== ''){
+      this.queryParams.province = addr
 
     }
     this.init()
